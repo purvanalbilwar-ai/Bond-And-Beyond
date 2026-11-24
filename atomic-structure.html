@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Atomic Structure | Bond and Beyond</title>
+
+<style>
+
+/* GENERAL STYLING */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #d9efff, #e9dcff, #cce9ff);
+    color: #263354;
+}
+
+/* NAVIGATION BAR */
+
+nav {
+    background: linear-gradient(90deg, #526fd1, #9065c9);
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 8px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #ffe68a;
+}
+
+/* HERO SECTION */
+
+.hero {
+    text-align: center;
+    padding: 85px 20px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    color: #5744a3;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 19px;
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+.hero button {
+    margin-top: 25px;
+    padding: 14px 30px;
+    background: linear-gradient(90deg, #537bdc, #9362d0);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 65px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 35px;
+    color: #624bb0;
+    margin-bottom: 35px;
+}
+
+.intro {
+    background: rgba(255,255,255,0.55);
+    border-radius: 20px;
+    padding: 30px;
+    line-height: 1.9;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* CARDS */
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.85);
+    padding: 28px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(70,70,130,0.13);
+    transition: 0.3s;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 12px 30px rgba(90,70,150,0.22);
+}
+
+.card h3 {
+    color: #7151bb;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    line-height: 1.8;
+}
+
+.particle {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+/* ATOM DIAGRAM */
+
+.atom-box {
+    background: rgba(255,255,255,0.7);
+    padding: 30px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.atom {
+    width: 270px;
+    height: 270px;
+    margin: 30px auto;
+    border: 3px solid #8766cc;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 12s linear infinite;
+}
+
+.atom::before {
+    content: "";
+    position: absolute;
+    width: 270px;
+    height: 115px;
+    border: 2px solid #548bd9;
+    border-radius: 50%;
+    top: 75px;
+    left: -3px;
+    transform: rotate(60deg);
+}
+
+.atom::after {
+    content: "";
+    position: absolute;
+    width: 270px;
+    height: 115px;
+    border: 2px solid #548bd9;
+    border-radius: 50%;
+    top: 75px;
+    left: -3px;
+    transform: rotate(-60deg);
+}
+
+.nucleus {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #a06ce0, #6042a8);
+    position: absolute;
+    top: 90px;
+    left: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.electron {
+    width: 15px;
+    height: 15px;
+    background: #2385e8;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 125px;
+    z-index: 3;
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+/* TABLE */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+th {
+    background: #7960bd;
+    color: white;
+}
+
+th, td {
+    padding: 17px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background: #eeeaff;
+}
+
+/* THEORY CARDS */
+
+.theory {
+    background: rgba(255,255,255,0.85);
+    margin-bottom: 25px;
+    padding: 30px;
+    border-left: 7px solid #8160c7;
+    border-radius: 15px;
+    line-height: 1.9;
+}
+
+.theory h3 {
+    color: #6548ad;
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+
+/* DISCOVERY TIMELINE */
+
+.timeline {
+    border-left: 4px solid #8661cf;
+    margin-left: 20px;
+    padding-left: 25px;
+}
+
+.event {
+    margin-bottom: 30px;
+}
+
+.event h3 {
+    color: #6247a9;
+}
+
+/* FOOTER */
+
+footer {
+    background: linear-gradient(90deg, #526fd1, #9065c9);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    section {
+        padding: 45px 5%;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 9px 5px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="logo">BOND AND BEYOND ⚛</div>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#intro">Atom</a>
+        <a href="#particles">Particles</a>
+        <a href="#values">Values</a>
+        <a href="#theories">Theories</a>
+    </div>
+</nav>
+
+<a href="index.html" style="
+            color:#5146a5;
+            text-decoration:none;
+            font-weight:600;
+            font-size:14px;
+            
+        ">
+            ← Back to Home
+        </a>
+<!-- HERO -->
+
+<div class="hero" id="home">
+
+    <h1>THE WORLD OF ATOMS ⚛</h1>
+
+    <p>
+        Discover the tiny building blocks of matter!
+        Explore protons, neutrons, electrons and the
+        scientific theories that changed our understanding
+        of atomic structure.
+    </p>
+
+    <button onclick="document.getElementById('intro').scrollIntoView()">
+        EXPLORE ATOMS
+    </button>
+
+</div>
+
+<!-- INTRODUCTION -->
+
+<section id="intro">
+
+    <h2 class="section-title">What is an Atom?</h2>
+
+    <div class="intro">
+
+        An atom is the smallest unit of an element that
+        retains its chemical properties.
+
+        Everything around us, including air, water,
+        plants, animals and human beings, is made up of atoms.
+
+        An atom consists of three main subatomic particles:
+
+        <br><br>
+
+        <b>Protons (+), Neutrons (0) and Electrons (-).</b>
+
+        <br><br>
+
+        Protons and neutrons are present inside the nucleus,
+        while electrons occupy regions around the nucleus
+        called orbitals or electron shells.
+
+    </div>
+
+</section>
+
+<!-- ATOM DIAGRAM -->
+
+<section>
+
+    <h2 class="section-title">Structure of an Atom</h2>
+
+    <div class="atom-box">
+
+        <div class="atom">
+            <div class="electron"></div>
+            <div class="nucleus">NUCLEUS</div>
+        </div>
+
+        <h3>Basic Atomic Structure</h3>
+
+        <p>
+            The nucleus contains protons and neutrons.
+            Electrons occupy the space around the nucleus.
+        </p>
+
+        <br>
+
+        <p>
+            Note: This is a simplified illustrative model,
+            not an exact representation of atomic scale
+            or electron motion.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- PARTICLES -->
+
+<section id="particles">
+
+    <h2 class="section-title">Three Main Subatomic Particles</h2>
+
+    <div class="card-container">
+
+        <div class="card">
+
+            <div class="particle">🔴</div>
+
+            <h3>Proton</h3>
+
+            <p>
+                A proton is a positively charged particle
+                found inside the nucleus of an atom.
+
+                <br><br>
+
+                <b>Symbol:</b> p⁺
+
+                <br>
+
+                <b>Charge:</b> Positive (+1)
+
+                <br>
+
+                <b>Location:</b> Nucleus
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="particle">🟣</div>
+
+            <h3>Neutron</h3>
+
+            <p>
+                A neutron is a neutral particle found
+                inside the nucleus of an atom.
+
+                <br><br>
+
+                <b>Symbol:</b> n⁰
+
+                <br>
+
+                <b>Charge:</b> Zero (0)
+
+                <br>
+
+                <b>Location:</b> Nucleus
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="particle">🔵</div>
+
+            <h3>Electron</h3>
+
+            <p>
+                An electron is a negatively charged
+                particle found outside the nucleus.
+
+                <br><br>
+
+                <b>Symbol:</b> e⁻
+
+                <br>
+
+                <b>Charge:</b> Negative (-1)
+
+                <br>
+
+                <b>Location:</b> Around nucleus
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- VALUES -->
+
+<section id="values">
+
+    <h2 class="section-title">
+        Mass and Charge of Subatomic Particles
+    </h2>
+
+    <table>
+
+        <tr>
+            <th>Particle</th>
+            <th>Mass (kg)</th>
+            <th>Mass (u)</th>
+            <th>Charge (C)</th>
+            <th>Relative Charge</th>
+        </tr>
+
+        <tr>
+            <td>Proton</td>
+            <td>1.6726 × 10⁻²⁷</td>
+            <td>1.0073</td>
+            <td>+1.6022 × 10⁻¹⁹</td>
+            <td>+1</td>
+        </tr>
+
+        <tr>
+            <td>Neutron</td>
+            <td>1.6749 × 10⁻²⁷</td>
+            <td>1.0087</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+
+        <tr>
+            <td>Electron</td>
+            <td>9.1094 × 10⁻³¹</td>
+            <td>0.0005486</td>
+            <td>-1.6022 × 10⁻¹⁹</td>
+            <td>-1</td>
+        </tr>
+
+    </table>
+
+    <br>
+
+    <div class="intro">
+
+        <b>Important Units:</b>
+
+        <br><br>
+
+        kg = Kilogram (SI unit of mass)
+
+        <br>
+
+        u = Unified atomic mass unit
+
+        <br>
+
+        C = Coulomb (SI unit of electric charge)
+
+        <br><br>
+
+        1 u ≈ 1.6605 × 10⁻²⁷ kg
+
+    </div>
+
+</section>
+
+<!-- ATOMIC THEORIES -->
+
+<section id="theories">
+
+    <h2 class="section-title">
+        Important Atomic Theories and Models
+    </h2>
+
+    <!-- DALTON -->
+
+    <div class="theory">
+
+        <h3>1. Dalton's Atomic Theory (1803)</h3>
+
+        <p>
+            John Dalton proposed his atomic theory in
+            the early nineteenth century.
+
+            <br><br>
+
+            <b>Main Postulates:</b>
+
+            <br>
+
+            1. All matter is made up of tiny particles called atoms.
+
+            <br>
+
+            2. Atoms of the same element were considered
+            identical in mass and properties.
+
+            <br>
+
+            3. Atoms of different elements have different
+            properties.
+
+            <br>
+
+            4. Atoms combine in simple whole-number ratios
+            to form compounds.
+
+            <br>
+
+            5. Chemical reactions involve rearrangement
+            of atoms.
+
+            <br><br>
+
+            <b>Model:</b> Solid Sphere Model.
+
+            <br>
+
+            <b>Limitation:</b> Atoms are divisible into
+            subatomic particles, and isotopes of an element
+            can have different masses.
+        </p>
+
+    </div>
+
+    <!-- THOMSON -->
+
+    <div class="theory">
+
+        <h3>2. J.J. Thomson's Atomic Model (1904)</h3>
+
+        <p>
+            J.J. Thomson discovered the electron in 1897
+            through cathode ray experiments.
+
+            <br><br>
+
+            He proposed the Plum Pudding Model of the atom.
+
+            <br><br>
+
+            <b>Main Ideas:</b>
+
+            <br>
+
+            1. An atom is a positively charged sphere.
+
+            <br>
+
+            2. Negatively charged electrons are embedded
+            inside this sphere.
+
+            <br>
+
+            3. The total positive and negative charges
+            balance each other.
+
+            <br><br>
+
+            <b>Model:</b> Plum Pudding Model.
+
+            <br>
+
+            <b>Limitation:</b> It could not explain the
+            results of Rutherford's alpha-particle
+            scattering experiment.
+        </p>
+
+    </div>
+
+    <!-- RUTHERFORD -->
+
+    <div class="theory">
+
+        <h3>3. Rutherford's Nuclear Model (1911)</h3>
+
+        <p>
+            Ernest Rutherford conducted the famous
+            Gold Foil Experiment.
+
+            <br><br>
+
+            He directed alpha particles towards a thin
+            sheet of gold foil.
+
+            <br><br>
+
+            <b>Observations:</b>
+
+            <br>
+
+            1. Most alpha particles passed straight through.
+
+            <br>
+
+            2. Some particles were deflected.
+
+            <br>
+
+            3. Very few particles bounced back.
+
+            <br><br>
+
+            <b>Conclusions:</b>
+
+            <br>
+
+            1. Most of the atom is empty space.
+
+            <br>
+
+            2. Positive charge is concentrated in a
+            tiny central nucleus.
+
+            <br>
+
+            3. Electrons occupy the region around the nucleus.
+
+            <br><br>
+
+            <b>Model:</b> Nuclear Model.
+
+            <br>
+
+            <b>Limitation:</b> It could not explain the
+            stability of atoms or their line spectra.
+        </p>
+
+    </div>
+
+    <!-- CHADWICK -->
+
+    <div class="theory">
+
+        <h3>4. James Chadwick's Discovery (1932)</h3>
+
+        <p>
+            James Chadwick discovered the neutron in 1932.
+
+            <br><br>
+
+            He bombarded beryllium with alpha particles
+            and observed a penetrating radiation.
+
+            <br><br>
+
+            This radiation consisted of neutral particles
+            with a mass approximately equal to that of
+            a proton.
+
+            <br><br>
+
+            <b>Conclusions:</b>
+
+            <br>
+
+            1. The nucleus contains protons and neutrons.
+
+            <br>
+
+            2. Neutrons have no electric charge.
+
+            <br>
+
+            3. Neutrons contribute significantly to
+            the mass of an atom.
+
+            <br><br>
+
+            <b>Discovery:</b> Neutron (1932).
+        </p>
+
+    </div>
+
+</section>
+
+<!-- DISCOVERY TIMELINE -->
+
+<section>
+
+    <h2 class="section-title">History of Atomic Discoveries</h2>
+
+    <div class="timeline">
+
+        <div class="event">
+            <h3>1803 – John Dalton</h3>
+            <p>Proposed modern atomic theory.</p>
+        </div>
+
+        <div class="event">
+            <h3>1897 – J.J. Thomson</h3>
+            <p>Discovered the electron.</p>
+        </div>
+
+        <div class="event">
+            <h3>1911 – Ernest Rutherford</h3>
+            <p>Proposed the nuclear model of the atom.</p>
+        </div>
+
+        <div class="event">
+            <h3>1917–1919 – Rutherford</h3>
+            <p>Identified the hydrogen nucleus as a fundamental
+            nuclear particle, later called the proton.</p>
+        </div>
+
+        <div class="event">
+            <h3>1932 – James Chadwick</h3>
+            <p>Discovered the neutron.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONCLUSION -->
+
+<section>
+
+    <h2 class="section-title">Conclusion</h2>
+
+    <div class="intro">
+
+        Atoms are the fundamental building blocks of
+        ordinary matter.
+
+        <br><br>
+
+        Protons, neutrons and electrons help us understand
+        the structure and properties of atoms.
+
+        <br><br>
+
+        The discoveries of Dalton, Thomson, Rutherford
+        and Chadwick transformed our understanding
+        of atomic science.
+
+        <br><br>
+
+        <b>Thank You for Exploring Atomic Structure!</b>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>BOND AND BEYOND ⚛</h2>
+
+    <p>Explore Chemistry Beyond Imagination</p>
+
+    <p>© 2026 Bond and Beyond | Atomic Structure</p>
+
+</footer>
+
+</body>
+</html>

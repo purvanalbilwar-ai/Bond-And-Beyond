@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/jpeg" href="bond-beyond-logo - Copy.jpeg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymer World | Chemistry Explorer</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f1ff;
+    color: #252342;
+    line-height: 1.6;
+}
+
+/* NAVIGATION */
+nav {
+    background: #211b46;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #c8b5ff;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #b7e7ff;
+}
+
+/* HERO */
+.hero {
+    min-height: 410px;
+    padding: 85px 8%;
+    text-align: center;
+    color: white;
+    background: linear-gradient(120deg, #4031a0, #8465db, #39a7d9);
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 58px);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 720px;
+    margin: auto;
+    font-size: 18px;
+}
+
+.hero button {
+    background: #fff;
+    color: #44349b;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    margin-top: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* GENERAL SECTIONS */
+section {
+    padding: 65px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 34px;
+    color: #4031a0;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #77718e;
+    margin-bottom: 35px;
+}
+
+/* INTRODUCTION */
+.intro-box {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 20px #31256b12;
+    max-width: 950px;
+    margin: auto;
+}
+
+.intro-box h3 {
+    color: #644ac5;
+    margin-bottom: 10px;
+}
+
+.formula {
+    background: #eee9ff;
+    color: #392a87;
+    padding: 16px;
+    margin: 15px 0;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+/* POLYMER CARDS */
+.search-box {
+    display: block;
+    margin: 0 auto 25px;
+    padding: 14px 20px;
+    width: min(100%, 500px);
+    border: 2px solid #c8b9f2;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filters button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    background: #e2d9ff;
+    color: #4031a0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filters button.active,
+.filters button:hover {
+    background: #5140b4;
+    color: white;
+}
+
+.polymer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 22px;
+}
+
+.polymer-card {
+    background: white;
+    padding: 24px;
+    border-radius: 17px;
+    border-top: 5px solid #8065dc;
+    box-shadow: 0 5px 20px #31256b12;
+    transition: 0.3s;
+}
+
+.polymer-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px #31256b25;
+}
+
+.polymer-card h3 {
+    color: #4935a3;
+    margin-bottom: 12px;
+}
+
+.polymer-card p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.polymer-card .formula {
+    font-size: 15px;
+}
+
+.tag {
+    display: inline-block;
+    background: #e8e1ff;
+    color: #503ba7;
+    border-radius: 12px;
+    padding: 4px 10px;
+    font-size: 12px;
+    margin: 3px;
+}
+
+/* TYPES */
+.types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.type-card {
+    background: white;
+    border-radius: 16px;
+    padding: 22px;
+    border-left: 5px solid #48a9d6;
+    box-shadow: 0 5px 18px #31256b12;
+}
+
+.type-card h3 {
+    color: #4837a1;
+    margin-bottom: 8px;
+}
+
+/* STRUCTURE */
+.structure-box {
+    background: #27214d;
+    color: white;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.structure-box h3 {
+    color: #cbbaff;
+    margin: 15px 0;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    background: #211b46;
+    color: white;
+    padding: 28px;
+}
+
+@media(max-width:600px) {
+    nav {
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 5px;
+    }
+
+    section {
+        padding: 45px 5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">🧬 POLYMER WORLD</div>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#polymers">Polymers</a>
+        <a href="#types">Types</a>
+        <a href="#structure">Structures</a>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<header class="hero" id="home">
+    <h1>Explore The World of Polymers</h1>
+    <p>
+        Discover monomers, molecular structures, polymerization
+        reactions and the fascinating types of polymers.
+    </p>
+    <button onclick="document.getElementById('polymers').scrollIntoView()">
+        Explore Polymers →
+    </button>
+</header>
+
+<!-- INTRODUCTION -->
+<section id="about">
+    <h2 class="section-title">What Are Polymers?</h2>
+    <p class="subtitle">Understanding the building blocks of materials</p>
+
+    <div class="intro-box">
+        <h3>Definition</h3>
+        <p>
+            Polymers are large molecules (macromolecules) formed by
+            joining many small repeating units called monomers.
+            The process of joining monomers is known as polymerization.
+        </p>
+
+        <div class="formula">
+            Many Monomers → Polymer
+        </div>
+
+        <h3>What is a Monomer?</h3>
+        <p>
+            A monomer is a small molecule that can chemically bond
+            with other molecules to form a polymer.
+        </p>
+
+        <h3>What is Polymerization?</h3>
+        <p>
+            Polymerization is the chemical process in which monomers
+            combine to produce long polymer chains.
+            It can occur through addition or condensation reactions.
+        </p>
+    </div>
+</section>
+
+<!-- POLYMER EXAMPLES -->
+<section id="polymers">
+    <h2 class="section-title">Explore Different Polymers</h2>
+    <p class="subtitle">
+        Learn about their monomers, repeating units and formation reactions.
+    </p>
+
+    <input
+        type="text"
+        class="search-box"
+        id="search"
+        placeholder="🔍 Search polymer name or monomer..."
+        oninput="renderPolymers()"
+    >
+
+    <div class="filters" id="filters">
+        <button class="active" onclick="setFilter('All',this)">All</button>
+        <button onclick="setFilter('Synthetic',this)">Synthetic</button>
+        <button onclick="setFilter('Natural',this)">Natural</button>
+        <button onclick="setFilter('Semisynthetic',this)">Semi-synthetic</button>
+    </div>
+
+    <div class="polymer-grid" id="polymerGrid"></div>
+</section>
+
+<!-- TYPES OF POLYMERS -->
+<section id="types">
+    <h2 class="section-title">Types of Polymers</h2>
+    <p class="subtitle">
+        Polymers are classified according to their origin,
+        thermal behaviour, mechanical properties and chain structure.
+    </p>
+
+    <div class="types-grid">
+
+        <div class="type-card">
+            <h3>🌿 1. Natural Polymers</h3>
+            <p>
+                Naturally occurring polymers obtained from plants,
+                animals and other biological sources.
+            </p>
+            <p><b>Examples:</b> Cellulose, starch, proteins, natural rubber.</p>
+        </div>
+
+        <div class="type-card">
+            <h3>🏭 2. Synthetic Polymers</h3>
+            <p>
+                Man-made polymers prepared through chemical
+                polymerization processes.
+            </p>
+            <p><b>Examples:</b> Nylon, PVC, polyethylene, Teflon.</p>
+        </div>
+
+        <div class="type-card">
+            <h3>🔬 3. Semi-synthetic Polymers</h3>
+            <p>
+                Natural polymers chemically modified to improve
+                their properties.
+            </p>
+            <p><b>Examples:</b> Cellulose acetate, rayon.</p>
+        </div>
+
+        <div class="type-card">
+            <h3>🔥 4. Thermoplastic Polymers</h3>
+            <p>
+                Soften on heating and harden on cooling.
+                They can generally be reshaped repeatedly.
+            </p>
+            <p><b>Examples:</b> PVC, polyethylene, polypropylene.</p>
+        </div>
+
+        <div class="type-card">
+            <h3>🧱 5. Thermosetting Polymers</h3>
+            <p>
+                Form a permanently cross-linked network on curing.
+                They cannot be remelted and reshaped.
+            </p>
+            <p><b>Examples:</b> Bakelite, melamine formaldehyde, epoxy resin.</p>
+        </div>
+
+        <div class="type-card">
+            <h3>🪀 6. Elastomers</h3>
+            <p>
+                Polymers that can stretch considerably and return
+                close to their original shape.
+            </p>
+            <p><b>Examples:</b> Natural rubber, neoprene.</p>
+        </div>
+
+        <div class="type-card">
+            <h3>🧵 7. Fibres</h3>
+            <p>
+                Polymers with strong intermolecular forces and
+                high tensile strength, suitable for making threads.
+            </p>
+            <p><b>Examples:</b> Nylon-6,6, polyester, Kevlar.</p>
+        </div>
+
+        <div class="type-card">
+            <h3>📏 8. Linear Polymers</h3>
+            <p>
+                Consist of long, straight chains of repeating
+                monomer units with no major side branches.
+            </p>
+            <p><b>Examples:</b> HDPE, PVC, nylon.</p>
+        </div>
+
+        <div class="type-card">
+            <h3>🌳 9. Branched Polymers</h3>
+            <p>
+                Have a main polymer chain with smaller side chains
+                attached to it.
+            </p>
+            <p><b>Examples:</b> LDPE, amylopectin.</p>
+        </div>
+
+        <div class="type-card">
+            <h3>🕸️ 10. Cross-linked Polymers</h3>
+            <p>
+                Have chemical bonds connecting different polymer
+                chains, forming a network structure.
+            </p>
+            <p><b>Examples:</b> Bakelite, vulcanized rubber, epoxy resin.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- STRUCTURES -->
+<section id="structure">
+    <h2 class="section-title">Polymer Chain Structures</h2>
+    <p class="subtitle">
+        Understand how polymer chains are arranged.
+    </p>
+
+    <div class="structure-box">
+        <h3>1. Linear Structure</h3>
+        <p>—●—●—●—●—●—●—</p>
+        <p>Long, straight polymer chains.</p>
+
+        <h3>2. Branched Structure</h3>
+        <p>—●—●—●—●—●—</p>
+        <p>　　│　　│</p>
+        <p>　　●　　●—●</p>
+        <p>Main chain with side branches.</p>
+
+        <h3>3. Cross-linked Structure</h3>
+        <p>●—●—●—●</p>
+        <p>│　│　│　│</p>
+        <p>●—●—●—●</p>
+        <p>Multiple chains connected by cross-links.</p>
+    </div>
+</section>
+
+<footer>
+    <h2>🧬 POLYMER WORLD</h2>
+    <p>Learn Chemistry | Understand Materials | Explore Science</p>
+    <p>Educational Chemistry Project</p>
+</footer>
+
+<script>
+
+/* POLYMER DATABASE */
+
+const polymers = [
+
+{
+name: "Polyethylene (PE)",
+type: "Synthetic",
+monomer: "Ethene (CH₂=CH₂)",
+structure: "[–CH₂–CH₂–]ₙ",
+reaction: "n CH₂=CH₂ → [–CH₂–CH₂–]ₙ",
+method: "Addition polymerization",
+use: "Plastic bags, bottles and packaging."
+},
+
+{
+name: "Polypropylene (PP)",
+type: "Synthetic",
+monomer: "Propene (CH₂=CH–CH₃)",
+structure: "[–CH₂–CH(CH₃)–]ₙ",
+reaction: "n CH₂=CH–CH₃ → [–CH₂–CH(CH₃)–]ₙ",
+method: "Addition polymerization",
+use: "Containers, ropes and household products."
+},
+
+{
+name: "Polyvinyl Chloride (PVC)",
+type: "Synthetic",
+monomer: "Vinyl chloride (CH₂=CHCl)",
+structure: "[–CH₂–CHCl–]ₙ",
+reaction: "n CH₂=CHCl → [–CH₂–CHCl–]ₙ",
+method: "Addition polymerization",
+use: "Pipes, cables and flooring."
+},
+
+{
+name: "Polystyrene (PS)",
+type: "Synthetic",
+monomer: "Styrene (C₆H₅–CH=CH₂)",
+structure: "[–CH₂–CH(C₆H₅)–]ₙ",
+reaction: "n CH₂=CH(C₆H₅) → [–CH₂–CH(C₆H₅)–]ₙ",
+method: "Addition polymerization",
+use: "Packaging, insulation and disposable products."
+},
+
+{
+name: "Teflon (PTFE)",
+type: "Synthetic",
+monomer: "Tetrafluoroethene (CF₂=CF₂)",
+structure: "[–CF₂–CF₂–]ₙ",
+reaction: "n CF₂=CF₂ → [–CF₂–CF₂–]ₙ",
+method: "Addition polymerization",
+use: "Non-stick coatings and chemical-resistant equipment."
+},
+
+{
+name: "Nylon-6,6",
+type: "Synthetic",
+monomer: "Hexamethylenediamine and adipic acid",
+structure: "[–NH–(CH₂)₆–NH–CO–(CH₂)₄–CO–]ₙ",
+reaction: "n H₂N–(CH₂)₆–NH₂ + n HOOC–(CH₂)₄–COOH → Nylon-6,6 + water",
+method: "Condensation polymerization",
+use: "Textiles, ropes and engineering components."
+},
+
+{
+name: "PET (Polyester)",
+type: "Synthetic",
+monomer: "Ethylene glycol and terephthalic acid",
+structure: "[–O–CH₂–CH₂–O–CO–C₆H₄–CO–]ₙ",
+reaction: "n HO–CH₂–CH₂–OH + n HOOC–C₆H₄–COOH → PET + water",
+method: "Condensation polymerization",
+use: "Plastic bottles and polyester fabrics."
+},
+
+{
+name: "Cellulose",
+type: "Natural",
+monomer: "β-D-glucose",
+structure: "(C₆H₁₀O₅)ₙ",
+reaction: "n Glucose → Cellulose + water",
+method: "Biological condensation",
+use: "Plant cell walls and paper."
+},
+
+{
+name: "Starch",
+type: "Natural",
+monomer: "α-D-glucose",
+structure: "(C₆H₁₀O₅)ₙ",
+reaction: "n Glucose → Starch + water",
+method: "Biological condensation",
+use: "Food energy storage in plants."
+},
+
+{
+name: "Natural Rubber",
+type: "Natural",
+monomer: "Isoprene (CH₂=C(CH₃)–CH=CH₂)",
+structure: "Cis-1,4-polyisoprene",
+reaction: "n Isoprene → [–CH₂–C(CH₃)=CH–CH₂–]ₙ",
+method: "Biological addition polymerization",
+use: "Tyres, rubber bands and gloves."
+},
+
+{
+name: "Cellulose Acetate",
+type: "Semisynthetic",
+monomer: "Modified cellulose",
+structure: "Acetylated cellulose chains",
+reaction: "Cellulose + acetic anhydride → Cellulose acetate + acetic acid",
+method: "Chemical modification (acetylation)",
+use: "Films, fibres and coatings."
+},
+
+{
+name: "Rayon",
+type: "Semisynthetic",
+monomer: "Regenerated cellulose",
+structure: "Cellulose chains",
+reaction: "Cellulose → soluble cellulose derivative → regenerated cellulose",
+method: "Dissolution and regeneration",
+use: "Clothing and textile fabrics."
+}
+
+];
+
+/* DISPLAY POLYMER CARDS */
+
+let currentFilter = "All";
+
+function setFilter(type, button) {
+    currentFilter = type;
+
+    document.querySelectorAll(".filters button")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+    renderPolymers();
+}
+
+function renderPolymers() {
+
+    const grid = document.getElementById("polymerGrid");
+    const search = document.getElementById("search")
+        .value.toLowerCase();
+
+    const filtered = polymers.filter(p => {
+
+        const matchesType =
+            currentFilter === "All" || p.type === currentFilter;
+
+        const matchesSearch =
+            p.name.toLowerCase().includes(search) ||
+            p.monomer.toLowerCase().includes(search);
+
+        return matchesType && matchesSearch;
+    });
+
+    if (filtered.length === 0) {
+        grid.innerHTML = "<p>No polymers found. Try another search.</p>";
+        return;
+    }
+
+    grid.innerHTML = filtered.map(p => `
+        <div class="polymer-card">
+            <span class="tag">${p.type}</span>
+            <h3>${p.name}</h3>
+
+            <p><b>Monomer:</b> ${p.monomer}</p>
+
+            <p><b>Structure:</b></p>
+            <div class="formula">${p.structure}</div>
+
+            <p><b>Formation Reaction:</b></p>
+            <div class="formula">${p.reaction}</div>
+
+            <p><b>Method:</b> ${p.method}</p>
+
+            <p><b>Uses:</b> ${p.use}</p>
+        </div>
+    `).join("");
+}
+
+/* INITIAL DISPLAY */
+renderPolymers();
+
+</script>
+
+</body>
+</html>

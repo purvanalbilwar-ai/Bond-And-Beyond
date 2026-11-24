@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/jpeg" href="bond-beyond-logo - Copy.jpeg">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bases | Bond and Beyond</title>
+<style>
+:root{color-scheme:dark;--bg:#0a1018;--panel:#111c29;--line:#26394b;--ink:#edf5fa;--muted:#9db1c1;--mint:#75ead0;--purple:#b59aff;--gold:#ffd376}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#17344a 0,transparent 55%),var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
+header{min-height:70px;padding:12px max(calc((100vw - 1100px)/2),22px);border-bottom:1px solid #ffffff12;background:#09111bd9;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:850;font-size:1.1rem;letter-spacing:-.04em}.brand b{color:var(--mint)}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:var(--muted);text-decoration:none;font-size:.88rem}nav a:hover{color:var(--mint)}
+main{width:min(1050px,92%);margin:auto;padding:48px 0 64px}.hero{text-align:center;margin:0 auto 30px;max-width:760px}.eyebrow{color:var(--mint);font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(2.2rem,5vw,3.7rem);letter-spacing:-.055em;line-height:1.05;margin:10px 0}.hero h1 span{color:var(--mint)}.hero p{color:var(--muted);margin:0 auto;max-width:680px}
+.panel,.type-card,.use-card{background:linear-gradient(150deg,#142131,#101a26);border:1px solid var(--line);border-radius:18px}.visual{padding:22px;margin:24px 0;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}.visual h2{font-size:1.1rem;margin:0 0 5px}.visual p{margin:0;color:var(--muted);font-size:.92rem}.equation{font-family:ui-monospace,monospace;text-align:center;color:var(--mint);font-size:clamp(1rem,3vw,1.5rem);font-weight:750;white-space:nowrap}.equation small{display:block;color:var(--muted);font: .76rem system-ui;margin-top:8px}.section-title{font-size:1.55rem;letter-spacing:-.03em;margin:38px 0 6px}.section-intro{color:var(--muted);margin:0 0 17px}.types{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.compare{width:100%;border-collapse:collapse;margin-top:14px;font-size:.87rem}.compare th,.compare td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}.compare th{color:var(--mint);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em}.compare td{color:#c2d0dc}.compare-wrap{overflow-x:auto}.concept{padding:18px}.concept h3{margin:0 0 7px;font-size:1rem}.concept p{margin:0;color:#c2d0dc;font-size:.9rem}.equation-line{display:block;font-family:ui-monospace,monospace;color:var(--mint);margin-top:8px}.key-term{color:var(--gold);font-weight:750}.type-card{padding:19px}.card-head{display:flex;align-items:center;gap:12px;margin-bottom:9px}.icon{width:42px;height:42px;border-radius:13px;background:#18353b;display:grid;place-items:center;font-size:1.3rem;flex:none}.type-card h3,.use-card h3{margin:0;font-size:1.05rem}.tag{margin-left:auto;color:var(--mint);font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.type-card p{margin:8px 0;color:#c2d0dc;font-size:.91rem}.example{background:#09141f;border:1px solid #26394b;border-radius:10px;padding:10px 12px;color:#d5e3ec;font-size:.84rem}.example strong{color:var(--gold)}.mini-svg{display:block;width:100%;height:112px;margin-top:10px;background:#0b1520;border-radius:12px}.note{margin-top:14px;color:#dfc98f;border:1px solid #594a2c;background:#292316;border-radius:12px;padding:12px 15px;font-size:.85rem}.uses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.use-card{padding:17px}.use-card .icon{margin-bottom:10px}.use-card p{margin:7px 0 0;color:#c2d0dc;font-size:.88rem}.safety{margin-top:20px;padding:15px 17px;border-left:3px solid var(--gold);background:#201d16;color:#d8c99c;border-radius:0 12px 12px 0;font-size:.88rem}.bottom-links{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:30px}.bottom-links a{color:var(--mint);text-decoration:none;border:1px solid var(--line);border-radius:10px;padding:10px 14px}.bottom-links a:hover{border-color:var(--mint)}footer{text-align:center;color:#73899b;font-size:.76rem;padding:18px;border-top:1px solid #ffffff12}
+@media(max-width:680px){header{align-items:flex-start;flex-direction:column;padding:15px 5%}.visual{grid-template-columns:1fr;text-align:center}.types{grid-template-columns:1fr}.uses{grid-template-columns:1fr}.tag{font-size:.62rem}}
+/* Bond and Beyond light lavender theme */
+:root{color-scheme:light;--bg:#f0efff;--panel:#ffffff;--line:#e2dcf1;--ink:#252139;--muted:#625d74;--mint:#6843a1;--pink:#a34779;--purple:#6843a1;--gold:#8a6120}
+body{background:radial-gradient(ellipse at 8% 24%,#ffffffb8 0 16%,transparent 16.2%),radial-gradient(ellipse at 93% 65%,#e4ddf6a6 0 19%,transparent 19.2%),radial-gradient(ellipse at 23% 92%,#e6eaff 0 22%,transparent 22.2%),#f0efff;color:#252139}
+header,.bb-topbar{background:#e8eafd;border-color:#dedcf0;color:#242036;box-shadow:0 5px 16px #473b6810}
+nav a,.top-link{color:#514b61}
+.panel,.type-card,.use-card,.bb-card,.detail,.scale-panel,.intro-card{background:rgba(255,255,255,.88);border-color:#e1dbef;box-shadow:0 10px 30px #4f3f7310;color:#252139}
+.type-card p,.use-card p,.intro-card p,.hero p,.bb-intro,.bb-card p,.description,.example,.compare td,.concept p{color:#514b61}
+.section-title,.importance h3,.type-card h3,.use-card h3,.intro-card h2{color:#984b79}
+input,#bb-search{background:#fff;color:#252139;border-color:#d5cce7}
+.filter{background:#fff;color:#514b61;border-color:#d8d0e8}
+.filter[aria-pressed="true"]{background:#6843a1;color:#fff;border-color:#6843a1}
+.compound{background:#fff;color:#252139;border-color:#e0d9ed}
+.compound .meta,.count,.ticks{color:#625d74}
+.detail,.bb-note,.note,.safety,.ph-callout,.example,.concept,.mini-svg{border-color:#e1dbef}
+.detail{background:rgba(255,255,255,.9)}
+.badge{background:#efe8fa;color:#6843a1}.badge.acid{background:#f8e7ef;color:#984b79}.badge.base{background:#eee8fa;color:#6843a1}
+.note{background:#fff8e8;color:#6b542a}.safety{background:#fff8e8;color:#665733}.safety strong{color:#8a6120}
+.bottom-link,.bottom-links a{color:#6843a1;border-color:#d6c9e9}
+.learn-card a{box-shadow:0 5px 14px #44266a1a}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Bond <b>&amp;</b> Beyond</div>
+  <nav aria-label="Page links"><a href="phscale.html">pH scale</a><a href="acid-base.html">Acids &amp; Bases</a></nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="eyebrow">Acids &amp; bases · the base side</div>
+    <h1>What makes a <span>base?</span></h1>
+    <p>Chemists describe bases in different ways. Learn the three major definitions, then see how base strength is classified.</p>
+  </section>
+
+  <section class="panel visual" aria-label="Ammonia accepts a proton from water">
+    <div><h2>A base can accept a proton</h2><p>In this reaction, ammonia accepts H⁺ from water and forms ammonium and hydroxide ions.</p></div>
+    <div class="equation">NH₃ + H₂O ⇌ NH₄⁺ + OH⁻<small>Ammonia acts as a Brønsted–Lowry base</small></div>
+  </section>
+
+  <h2 class="section-title">Three definitions of a base</h2>
+  <p class="section-intro">Each definition describes basic behaviour from a different point of view.</p>
+  <section class="types">
+    <article class="type-card">
+      <div class="card-head"><span class="icon">💧</span><h3>Arrhenius base</h3><span class="tag">In water</span></div>
+      <p>An Arrhenius base increases the concentration of hydroxide ions, OH⁻, when dissolved in water.</p>
+      <div class="example"><strong>Example:</strong> Sodium hydroxide dissolves into ions:<br>NaOH → Na⁺ + OH⁻</div>
+      <svg class="mini-svg" viewBox="0 0 360 112" role="img" aria-label="Sodium hydroxide separates into sodium and hydroxide ions in water">
+        <rect width="360" height="112" rx="12" fill="#0b1520"/><text x="180" y="27" text-anchor="middle" fill="#9db1c1" font-size="13">NaOH dissolves in water</text><text x="180" y="70" text-anchor="middle" fill="#75ead0" font-size="22" font-family="monospace">NaOH → Na⁺ + OH⁻</text>
+      </svg>
+    </article>
+
+    <article class="type-card">
+      <div class="card-head"><span class="icon">🔁</span><h3>Brønsted–Lowry base</h3><span class="tag">Proton acceptor</span></div>
+      <p>A Brønsted–Lowry base accepts a proton (H⁺) from another substance.</p>
+      <div class="example"><strong>Example:</strong> Ammonia accepts H⁺ from water:<br>NH₃ + H₂O ⇌ NH₄⁺ + OH⁻</div>
+      <svg class="mini-svg" viewBox="0 0 360 112" role="img" aria-label="Ammonia accepts a hydrogen ion to form ammonium">
+        <rect width="360" height="112" rx="12" fill="#0b1520"/><circle cx="85" cy="55" r="28" fill="#18353b" stroke="#75ead0"/><text x="85" y="61" text-anchor="middle" fill="#edf5fa" font-size="17">NH₃</text><path d="M125 55h92" stroke="#b59aff" stroke-width="3"/><path d="m210 48 10 7-10 7" fill="none" stroke="#b59aff" stroke-width="3"/><text x="170" y="42" text-anchor="middle" fill="#ffd376" font-size="13">accepts H⁺</text><circle cx="272" cy="55" r="33" fill="#18353b" stroke="#75ead0"/><text x="272" y="61" text-anchor="middle" fill="#edf5fa" font-size="17">NH₄⁺</text>
+      </svg>
+    </article>
+
+    <article class="type-card">
+      <div class="card-head"><span class="icon">••</span><h3>Lewis base</h3><span class="tag">Electron pair donor</span></div>
+      <p>A Lewis base donates a pair of electrons to form a bond. This definition includes reactions without proton transfer.</p>
+      <div class="example"><strong>Example:</strong> Ammonia donates its lone pair to boron trifluoride:<br>NH₃ + BF₃ → H₃N→BF₃</div>
+      <svg class="mini-svg" viewBox="0 0 360 112" role="img" aria-label="Ammonia donates an electron pair to boron trifluoride">
+        <rect width="360" height="112" rx="12" fill="#0b1520"/><text x="84" y="63" text-anchor="middle" fill="#edf5fa" font-size="20" font-family="monospace">:NH₃</text><text x="180" y="63" text-anchor="middle" fill="#b59aff" font-size="25">→</text><text x="274" y="63" text-anchor="middle" fill="#edf5fa" font-size="20" font-family="monospace">BF₃</text><text x="180" y="91" text-anchor="middle" fill="#9db1c1" font-size="12">lone pair forms a coordinate bond</text>
+      </svg>
+    </article>
+
+    <article class="type-card">
+      <div class="card-head"><span class="icon">⚡</span><h3>Strong and weak bases</h3><span class="tag">Extent of reaction</span></div>
+      <p><strong>Strong bases</strong> ionise or dissociate almost completely in water. <strong>Weak bases</strong> react only partially and establish an equilibrium.</p>
+      <div class="example"><strong>Strong:</strong> NaOH → Na⁺ + OH⁻<br><strong>Weak:</strong> NH₃ + H₂O ⇌ NH₄⁺ + OH⁻</div>
+      <svg class="mini-svg" viewBox="0 0 360 112" role="img" aria-label="Strong bases react almost completely while weak bases react partially">
+        <rect width="360" height="112" rx="12" fill="#0b1520"/><text x="92" y="34" text-anchor="middle" fill="#75ead0" font-size="13">STRONG</text><text x="92" y="66" text-anchor="middle" fill="#edf5fa" font-size="18" font-family="monospace">→ → →</text><text x="92" y="91" text-anchor="middle" fill="#9db1c1" font-size="12">almost complete</text><text x="268" y="34" text-anchor="middle" fill="#b59aff" font-size="13">WEAK</text><text x="268" y="66" text-anchor="middle" fill="#edf5fa" font-size="18" font-family="monospace">⇌</text><text x="268" y="91" text-anchor="middle" fill="#9db1c1" font-size="12">partial reaction</text>
+      </svg>
+    </article>
+  </section>
+  <div class="note"><strong>Remember:</strong> Strong vs weak describes how much a base reacts in water. Concentrated vs dilute describes how much base is present in a given volume; these are different ideas.</div>
+
+  <h2 class="section-title">How the definitions differ</h2>
+  <p class="section-intro">The definitions are related, but each one focuses on a different part of a reaction.</p>
+  <section class="panel concept compare-wrap">
+    <table class="compare">
+      <thead><tr><th>Definition</th><th>What the base does</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Arrhenius</td><td>Raises the OH⁻ concentration in water.</td><td>NaOH → Na⁺ + OH⁻</td></tr>
+        <tr><td>Brønsted–Lowry</td><td>Accepts a proton, H⁺.</td><td>NH₃ + H₂O ⇌ NH₄⁺ + OH⁻</td></tr>
+        <tr><td>Lewis</td><td>Donates an electron pair to make a bond.</td><td>NH₃ + BF₃ → H₃N→BF₃</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="types" style="margin-top:14px">
+    <article class="panel concept"><h3>Base or alkali?</h3><p>A <span class="key-term">base</span> neutralises an acid. An <span class="key-term">alkali</span> is a base that dissolves in water and produces OH⁻ ions. So, all alkalis are bases, but some bases do not dissolve well in water.</p></article>
+    <article class="panel concept"><h3>Neutralisation</h3><p>When an acid reacts with a base, they can form a salt and water. The net ionic equation is:</p><span class="equation-line">H⁺ + OH⁻ → H₂O</span><span class="equation-line">HCl + NaOH → NaCl + H₂O</span></article>
+    <article class="panel concept"><h3>Amphoteric substances</h3><p>Some substances can react as either an acid or a base, depending on what they react with. Water is one example; aluminium oxide and zinc oxide are amphoteric oxides.</p></article>
+    <article class="panel concept"><h3>Base strength and pH</h3><p>A stronger base produces more OH⁻ in water at the same concentration. For dilute aqueous solutions at 25°C, pH + pOH = 14. The pH page shows where solutions sit on the scale.</p></article>
+  </section>
+  <h2 class="section-title">Examples from school chemistry</h2>
+  <p class="section-intro">These examples are commonly studied in school chemistry.</p>
+  <section class="types">
+    <article class="type-card"><div class="card-head"><span class="icon">🧪</span><h3>Sodium hydroxide</h3></div><p><strong>Formula:</strong> NaOH · a strong Arrhenius base; it dissociates in water to give OH⁻ ions.</p></article>
+    <article class="type-card"><div class="card-head"><span class="icon">🧪</span><h3>Potassium hydroxide</h3></div><p><strong>Formula:</strong> KOH · a strong Arrhenius base that dissociates in water.</p></article>
+    <article class="type-card"><div class="card-head"><span class="icon">⚗️</span><h3>Ammonia</h3></div><p><strong>Formula:</strong> NH₃ · a weak Brønsted–Lowry base; it accepts H⁺ from water.</p></article>
+    <article class="type-card"><div class="card-head"><span class="icon">⚗️</span><h3>Methylamine</h3></div><p><strong>Formula:</strong> CH₃NH₂ · a weak Brønsted–Lowry base that accepts a proton.</p></article>
+  </section>
+
+  <h2 class="section-title">Bases in everyday products</h2>
+  <p class="section-intro">Bases also have useful roles in manufacturing, construction, and medicine.</p>
+  <section class="uses">
+    <article class="use-card"><div class="icon">🧼</div><h3>Soap making</h3><p>Sodium hydroxide is used to make many solid soaps through a process called saponification.</p></article>
+    <article class="use-card"><div class="icon">🏗️</div><h3>Building materials</h3><p>Calcium hydroxide, Ca(OH)₂, is used in mortar and plaster, and to reduce soil acidity.</p></article>
+    <article class="use-card"><div class="icon">💊</div><h3>Antacids</h3><p>Magnesium hydroxide, Mg(OH)₂, is used in some antacid products to neutralise excess stomach acid.</p></article>
+    <article class="use-card"><div class="icon">🌱</div><h3>Fertilisers</h3><p>Ammonia, NH₃, is an important starting material for making nitrogen fertilisers.</p></article>
+    <article class="use-card"><div class="icon">🧽</div><h3>Cleaning products</h3><p>Some cleaning products contain alkaline substances that help remove grease. Their ingredients vary.</p></article>
+    <article class="use-card"><div class="icon">🧪</div><h3>Water treatment</h3><p>Calcium hydroxide can be used in water treatment to adjust pH and help remove impurities.</p></article>
+    <article class="use-card"><div class="icon">🥨</div><h3>Baking and cooking</h3><p>Sodium hydrogen carbonate, NaHCO₃, is used in baking powder and some recipes to release carbon dioxide and help dough rise.</p></article>
+    <article class="use-card"><div class="icon">🫧</div><h3>Water softening</h3><p>Sodium carbonate, Na₂CO₃, is used in some processes to soften water by helping remove calcium ions.</p></article>
+  </section>
+  <div class="safety"><strong>Safety:</strong> Some bases, including concentrated sodium hydroxide, potassium hydroxide, and ammonia solutions, can cause serious injury. Never handle them without teacher supervision and proper lab safety equipment.</div>
+  <div class="bottom-links"><a href="acid-base.html">← Back to Acids &amp; Bases</a><a href="phscale.html">Explore the pH scale →</a></div>
+</main>
+<footer>Bond and Beyond · Learn chemistry, one concept at a time</footer>
+</body>
+</html>

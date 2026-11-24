@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/jpeg" href="bond-beyond-logo - Copy.jpeg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Periodic Table</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #101820;
+        color: white;
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #a47dab;
+        margin-bottom: 8px;
+    }
+
+    .description {
+        color: #cccccc;
+        margin-bottom: 25px;
+    }
+
+    .table {
+        display: grid;
+        grid-template-columns: repeat(18, minmax(0, 1fr));
+        gap: 4px;
+        max-width: 1200px;
+        margin: auto;
+        overflow-x: auto;
+    }
+
+    .element {
+        min-width: 35px;
+        height: 65px;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 4px 1px;
+        box-sizing: border-box;
+        color: #111;
+        transition: 0.2s;
+    }
+
+    .element:hover {
+        transform: scale(1.12);
+        outline: 2px solid white;
+        z-index: 2;
+    }
+
+    .number {
+        display: block;
+        font-size: 10px;
+        text-align: left;
+        margin-left: 3px;
+    }
+
+    .symbol {
+        display: block;
+        font-size: 21px;
+        font-weight: bold;
+    }
+
+    .name {
+        display: block;
+        font-size: 9px;
+        overflow: hidden;
+    }
+
+    /* Element categories */
+
+    .alkali { background: #ff8585; }
+    .alkaline { background: #ffb37d; }
+    .transition { background: #f4df80; }
+    .post-transition { background: #a5d6a7; }
+    .metalloid { background: #55d6e9; }
+    .nonmetal { background: #87b8ee; }
+    .halogen { background: #b8a2e5; }
+    .noble { background: #d2a5dc; }
+    .lanthanoid { background: #e5b9a7; }
+    .actinoid { background: #e5a69a; }
+    .unknown { background: #bdbdbd; }
+
+    .empty {
+        visibility: hidden;
+    }
+
+    /* Popup window */
+
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+    }
+
+    .popup-content {
+        background: white;
+        color: #222;
+        padding: 30px;
+        border-radius: 15px;
+        width: 300px;
+        max-width: 85%;
+        position: relative;
+        box-shadow: 0 0 20px #00d9ff;
+    }
+
+    .popup-content h2 {
+        color: #007c91;
+        font-size: 28px;
+    }
+
+    .big-symbol {
+        font-size: 55px;
+        font-weight: bold;
+        margin: 10px;
+        color: #007c91;
+    }
+
+    .popup-content p {
+        text-align: left;
+        font-size: 16px;
+        margin: 12px 0;
+    }
+
+    .close {
+        position: absolute;
+        top: 8px;
+        right: 15px;
+        font-size: 28px;
+        cursor: pointer;
+        color: red;
+    }
+
+    .legend {
+        margin: 30px auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        max-width: 1000px;
+    }
+
+    .legend span {
+        padding: 8px 12px;
+        border-radius: 5px;
+        color: #111;
+        font-size: 12px;
+    }
+
+    .status {
+        margin: 20px;
+        color: #00d9ff;
+    }
+
+    @media(max-width: 600px) {
+        .table {
+            min-width: 750px;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+        }
+    }
+    .search-container {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.search-container input {
+    padding: 12px;
+    width: 280px;
+    border-radius: 8px;
+    border: 2px solid #00d9ff;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-container button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #00bcd4;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.search-container button:hover {
+    background: #007c91;
+}
+
+#searchMessage {
+    color: #ffcc66;
+    min-height: 20px;
+}
+
+.highlight {
+    outline: 3px solid white;
+    box-shadow: 0 0 15px #00d9ff;
+    transform: scale(1.12);
+}
+</style>
+</head>
+
+<body>
+
+<h1>PERIODIC TABLE OF ELEMENTS</h1>
+
+<p class="description">
+    Explore all 118 chemical elements.
+    Click on any element to know more!
+</p>
+
+<div class="search-container">
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search element by name or symbol..."
+    >
+
+    <button onclick="searchElement()">Search</button>
+    <button onclick="resetSearch()">Show All</button>
+</div>
+
+<p id="searchMessage"></p>
+
+<div class="table-wrapper">
+    <div class="table" id="periodicTable">
+        <p class="status">Loading elements...</p>
+    </div>
+</div>
+
+<div class="legend">
+    <span class="alkali">Alkali Metal</span>
+    <span class="alkaline">Alkaline Earth</span>
+    <span class="transition">Transition Metal</span>
+    <span class="post-transition">Post-transition Metal</span>
+    <span class="metalloid">Metalloid</span>
+    <span class="nonmetal">Non-metal</span>
+    <span class="halogen">Halogen</span>
+    <span class="noble">Noble Gas</span>
+    <span class="lanthanoid">Lanthanide</span>
+    <span class="actinoid">Actinide</span>
+</div>
+
+<!-- Popup window -->
+
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+
+        <h2 id="elementName"></h2>
+
+        <div class="big-symbol" id="elementSymbol"></div>
+
+        <p><b>Atomic Number:</b> <span id="atomicNumber"></span></p>
+
+        <p><b>Atomic Mass:</b> <span id="atomicMass"></span></p>
+
+        <p><b>Category:</b> <span id="category"></span></p>
+
+    </div>
+</div>
+
+<!-- Original uploaded periodic table image -->
+<!--<details style="margin-top:25px;">
+    <summary style="cursor:pointer;">View Original Periodic Table Image</summary>
+    <img src="perodictable.jpeg"
+         alt="Original Periodic Table"
+         style="width:90%;max-width:800px;margin-top:15px;">
+</details> -->
+
+<script>
+
+// Load periodic table data
+const table = document.getElementById("periodicTable");
+
+let allElements = [];
+
+fetch("https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json")
+.then(response => {
+    if (!response.ok) throw new Error("Data could not be loaded");
+    return response.json();
+})
+.then(data => {
+
+    table.innerHTML = "";
+
+    allElements = data.elements;
+
+    data.elements.forEach(element => {
+
+        const box = document.createElement("div");
+
+        box.className = "element " + getCategory(element.category);
+
+        box.dataset.number = element.number;
+
+        // Position each element in its correct location
+        box.style.gridColumn = element.xpos;
+        box.style.gridRow = element.ypos;
+
+        box.innerHTML = `
+            <span class="number">${element.number}</span>
+            <span class="symbol">${element.symbol}</span>
+            <span class="name">${element.name}</span>
+        `;
+
+        // Open popup on clicking an element
+        box.addEventListener("click", function() {
+            showPopup(element);
+        });
+
+        table.appendChild(box);
+    });
+
+})
+.catch(error => {
+    table.innerHTML =
+        "<p class='status'>Unable to load elements. Please check your internet connection.</p>";
+});
+
+// Search for an element
+function searchElement() {
+
+    let input = document.getElementById("searchInput")
+                      .value.trim().toLowerCase();
+
+    let message = document.getElementById("searchMessage");
+
+    let elements = document.querySelectorAll(".element");
+
+    // Remove previous highlights
+    elements.forEach(box => {
+        box.classList.remove("highlight");
+        box.style.opacity = "0.3";
+    });
+
+    if (input === "") {
+        message.innerText = "Please enter an element name or symbol.";
+        return;
+    }
+
+    // Find matching element
+    let found = allElements.find(element =>
+        element.name.toLowerCase() === input ||
+        element.symbol.toLowerCase() === input
+    );
+
+    // Also allow partial name searches
+    if (!found) {
+        found = allElements.find(element =>
+            element.name.toLowerCase().includes(input)
+        );
+    }
+
+    if (found) {
+
+        let box = document.querySelector(
+            `[data-number="${found.number}"]`
+        );
+
+        box.classList.add("highlight");
+        box.style.opacity = "1";
+
+        message.innerText =
+            "Element found: " + found.name +
+            ". Click the highlighted element to see details.";
+
+        box.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "center"
+        });
+
+    } else {
+
+        message.innerText = "No matching element found!";
+    }
+}
+
+
+// Reset search
+function resetSearch() {
+
+    document.getElementById("searchInput").value = "";
+
+    document.getElementById("searchMessage").innerText = "";
+
+    document.querySelectorAll(".element").forEach(box => {
+        box.classList.remove("highlight");
+        box.style.opacity = "1";
+    });
+}
+
+
+// Search when Enter key is pressed
+document.getElementById("searchInput").addEventListener(
+    "keypress",
+    function(event) {
+        if (event.key === "Enter") {
+            searchElement();
+        }
+    }
+);
+
+// Identify element category
+function getCategory(category) {
+
+    category = category.toLowerCase();
+
+    if(category.includes("alkali metal")) return "alkali";
+
+    if(category.includes("alkaline earth")) return "alkaline";
+
+    if(category.includes("transition metal")) return "transition";
+
+    if(category.includes("post-transition")) return "post-transition";
+
+    if(category.includes("metalloid")) return "metalloid";
+
+    if(category.includes("noble gas")) return "noble";
+
+    if(category.includes("halogen")) return "halogen";
+
+    if(category.includes("lanthanoid")) return "lanthanoid";
+
+    if(category.includes("actinoid")) return "actinoid";
+
+    if(category.includes("nonmetal")) return "nonmetal";
+
+    return "unknown";
+}
+
+
+// Display element information
+function showPopup(element) {
+
+    document.getElementById("elementName").innerText =
+        element.name;
+
+    document.getElementById("elementSymbol").innerText =
+        element.symbol;
+
+    document.getElementById("atomicNumber").innerText =
+        element.number;
+
+    document.getElementById("atomicMass").innerText =
+        element.atomic_mass + " u";
+
+    document.getElementById("category").innerText =
+        element.category;
+
+    document.getElementById("popup").style.display = "flex";
+}
+
+
+// Close popup
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+// Close popup when clicking outside the box
+document.getElementById("popup").addEventListener("click", function(event) {
+    if(event.target === this) {
+        closePopup();
+    }
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/jpeg" href="bond-beyond-logo - Copy.jpeg">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acids | Bond and Beyond</title>
+<style>
+:root{color-scheme:dark;--bg:#0a1018;--panel:#111c29;--line:#26394b;--ink:#edf5fa;--muted:#9db1c1;--mint:#75ead0;--pink:#ff87aa;--gold:#ffd376}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#3a1c32 0,transparent 55%),var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
+header{min-height:70px;padding:12px max(calc((100vw - 1100px)/2),22px);border-bottom:1px solid #ffffff12;background:#09111bd9;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:850;font-size:1.1rem;letter-spacing:-.04em}.brand b{color:var(--mint)}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:var(--muted);text-decoration:none;font-size:.88rem}nav a:hover{color:var(--pink)}
+main{width:min(1050px,92%);margin:auto;padding:48px 0 64px}.hero{text-align:center;margin:0 auto 30px;max-width:760px}.eyebrow{color:var(--pink);font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(2.2rem,5vw,3.7rem);letter-spacing:-.055em;line-height:1.05;margin:10px 0}.hero h1 span{color:var(--pink)}.hero p{color:var(--muted);margin:0 auto;max-width:680px}
+.panel,.type-card,.use-card{background:linear-gradient(150deg,#142131,#101a26);border:1px solid var(--line);border-radius:18px}.visual{padding:22px;margin:24px 0;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}.visual h2{font-size:1.1rem;margin:0 0 5px}.visual p{margin:0;color:var(--muted);font-size:.92rem}.equation{font-family:ui-monospace,monospace;text-align:center;color:var(--pink);font-size:clamp(1rem,3vw,1.5rem);font-weight:750;white-space:nowrap}.equation small{display:block;color:var(--muted);font: .76rem system-ui;margin-top:8px}.section-title{font-size:1.55rem;letter-spacing:-.03em;margin:38px 0 6px}.section-intro{color:var(--muted);margin:0 0 17px}.types{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.type-card{padding:19px}.card-head{display:flex;align-items:center;gap:12px;margin-bottom:9px}.icon{width:42px;height:42px;border-radius:13px;background:#3a2433;display:grid;place-items:center;font-size:1.3rem;flex:none}.type-card h3,.use-card h3{margin:0;font-size:1.05rem}.tag{margin-left:auto;color:var(--pink);font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.type-card p{margin:8px 0;color:#c2d0dc;font-size:.91rem}.example{background:#09141f;border:1px solid #26394b;border-radius:10px;padding:10px 12px;color:#d5e3ec;font-size:.84rem}.example strong{color:var(--gold)}.mini-svg{display:block;width:100%;height:112px;margin-top:10px;background:#0b1520;border-radius:12px}.note{margin-top:14px;color:#dfc98f;border:1px solid #594a2c;background:#292316;border-radius:12px;padding:12px 15px;font-size:.85rem}.compare{width:100%;border-collapse:collapse;margin-top:14px;font-size:.87rem}.compare th,.compare td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}.compare th{color:var(--pink);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em}.compare td{color:#c2d0dc}.compare-wrap{overflow-x:auto}.concept{padding:18px}.concept h3{margin:0 0 7px;font-size:1rem}.concept p{margin:0;color:#c2d0dc;font-size:.9rem}.equation-line{display:block;font-family:ui-monospace,monospace;color:var(--pink);margin-top:8px}.key-term{color:var(--gold);font-weight:750}.uses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.use-card{padding:17px}.use-card .icon{margin-bottom:10px}.use-card p{margin:7px 0 0;color:#c2d0dc;font-size:.88rem}.safety{margin-top:20px;padding:15px 17px;border-left:3px solid var(--gold);background:#201d16;color:#d8c99c;border-radius:0 12px 12px 0;font-size:.88rem}.bottom-links{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:30px}.bottom-links a{color:var(--pink);text-decoration:none;border:1px solid var(--line);border-radius:10px;padding:10px 14px}.bottom-links a:hover{border-color:var(--pink)}footer{text-align:center;color:#73899b;font-size:.76rem;padding:18px;border-top:1px solid #ffffff12}
+@media(max-width:680px){header{align-items:flex-start;flex-direction:column;padding:15px 5%}.visual{grid-template-columns:1fr;text-align:center}.types{grid-template-columns:1fr}.uses{grid-template-columns:1fr}.tag{font-size:.62rem}}
+/* Bond and Beyond light lavender theme */
+:root{color-scheme:light;--bg:#f0efff;--panel:#ffffff;--line:#e2dcf1;--ink:#252139;--muted:#625d74;--mint:#6843a1;--pink:#a34779;--purple:#6843a1;--gold:#8a6120}
+body{background:radial-gradient(ellipse at 8% 24%,#ffffffb8 0 16%,transparent 16.2%),radial-gradient(ellipse at 93% 65%,#e4ddf6a6 0 19%,transparent 19.2%),radial-gradient(ellipse at 23% 92%,#e6eaff 0 22%,transparent 22.2%),#f0efff;color:#252139}
+header,.bb-topbar{background:#e8eafd;border-color:#dedcf0;color:#242036;box-shadow:0 5px 16px #473b6810}
+nav a,.top-link{color:#514b61}
+.panel,.type-card,.use-card,.bb-card,.detail,.scale-panel,.intro-card{background:rgba(255,255,255,.88);border-color:#e1dbef;box-shadow:0 10px 30px #4f3f7310;color:#252139}
+.type-card p,.use-card p,.intro-card p,.hero p,.bb-intro,.bb-card p,.description,.example,.compare td,.concept p{color:#514b61}
+.section-title,.importance h3,.type-card h3,.use-card h3,.intro-card h2{color:#984b79}
+input,#bb-search{background:#fff;color:#252139;border-color:#d5cce7}
+.filter{background:#fff;color:#514b61;border-color:#d8d0e8}
+.filter[aria-pressed="true"]{background:#6843a1;color:#fff;border-color:#6843a1}
+.compound{background:#fff;color:#252139;border-color:#e0d9ed}
+.compound .meta,.count,.ticks{color:#625d74}
+.detail,.bb-note,.note,.safety,.ph-callout,.example,.concept,.mini-svg{border-color:#e1dbef}
+.detail{background:rgba(255,255,255,.9)}
+.badge{background:#efe8fa;color:#6843a1}.badge.acid{background:#f8e7ef;color:#984b79}.badge.base{background:#eee8fa;color:#6843a1}
+.note{background:#fff8e8;color:#6b542a}.safety{background:#fff8e8;color:#665733}.safety strong{color:#8a6120}
+.bottom-link,.bottom-links a{color:#6843a1;border-color:#d6c9e9}
+.learn-card a{box-shadow:0 5px 14px #44266a1a}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Bond <b>&amp;</b> Beyond</div>
+  <nav aria-label="Page links"><a href="acid_ph_scale.html">pH scale</a><a href="acids-bases.html">Acids &amp; Bases</a><a href="bases.html">Bases</a></nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="eyebrow">Acids &amp; bases · the acid side</div>
+    <h1>What makes an <span>acid?</span></h1>
+    <p>Chemists describe acids in different ways. Learn the three major definitions, then see how acid strength is classified.</p>
+  </section>
+
+  <section class="panel visual" aria-label="Hydrochloric acid donates a proton to water">
+    <div><h2>An acid can donate a proton</h2><p>Hydrogen chloride transfers H⁺ to water. The products are hydronium and chloride ions.</p></div>
+    <div class="equation">HCl + H₂O → H₃O⁺ + Cl⁻<small>HCl acts as a Brønsted–Lowry acid</small></div>
+  </section>
+
+  <h2 class="section-title">Three definitions of an acid</h2>
+  <p class="section-intro">Each definition describes acidic behaviour from a different point of view.</p>
+  <section class="types">
+    <article class="type-card">
+      <div class="card-head"><span class="icon">💧</span><h3>Arrhenius acid</h3><span class="tag">In water</span></div>
+      <p>An Arrhenius acid increases the concentration of hydrogen ions, H⁺ (present as H₃O⁺), when dissolved in water.</p>
+      <div class="example"><strong>Example:</strong> Hydrogen chloride forms ions in water:<br>HCl + H₂O → H₃O⁺ + Cl⁻</div>
+      <svg class="mini-svg" viewBox="0 0 360 112" role="img" aria-label="Hydrogen chloride reacts with water to make hydronium and chloride ions">
+        <rect width="360" height="112" rx="12" fill="#0b1520"/><text x="180" y="27" text-anchor="middle" fill="#9db1c1" font-size="13">HCl transfers H⁺ to water</text><text x="180" y="70" text-anchor="middle" fill="#ff87aa" font-size="20" font-family="monospace">HCl + H₂O → H₃O⁺ + Cl⁻</text>
+      </svg>
+    </article>
+
+    <article class="type-card">
+      <div class="card-head"><span class="icon">🔁</span><h3>Brønsted–Lowry acid</h3><span class="tag">Proton donor</span></div>
+      <p>A Brønsted–Lowry acid donates a proton (H⁺) to another substance.</p>
+      <div class="example"><strong>Example:</strong> HCl donates H⁺ to water:<br>HCl + H₂O → H₃O⁺ + Cl⁻</div>
+      <svg class="mini-svg" viewBox="0 0 360 112" role="img" aria-label="Hydrogen chloride donates a hydrogen ion to water">
+        <rect width="360" height="112" rx="12" fill="#0b1520"/><circle cx="75" cy="55" r="29" fill="#3a2433" stroke="#ff87aa"/><text x="75" y="61" text-anchor="middle" fill="#edf5fa" font-size="17">HCl</text><path d="M119 55h86" stroke="#ffd376" stroke-width="3"/><path d="m198 48 10 7-10 7" fill="none" stroke="#ffd376" stroke-width="3"/><text x="164" y="42" text-anchor="middle" fill="#ff87aa" font-size="13">donates H⁺</text><circle cx="274" cy="55" r="34" fill="#18353b" stroke="#75ead0"/><text x="274" y="61" text-anchor="middle" fill="#edf5fa" font-size="17">H₃O⁺</text>
+      </svg>
+    </article>
+
+    <article class="type-card">
+      <div class="card-head"><span class="icon">••</span><h3>Lewis acid</h3><span class="tag">Electron pair acceptor</span></div>
+      <p>A Lewis acid accepts a pair of electrons to form a bond. This definition includes reactions without proton transfer.</p>
+      <div class="example"><strong>Example:</strong> Boron trifluoride accepts a lone pair from ammonia:<br>NH₃ + BF₃ → H₃N→BF₃</div>
+      <svg class="mini-svg" viewBox="0 0 360 112" role="img" aria-label="Boron trifluoride accepts an electron pair from ammonia">
+        <rect width="360" height="112" rx="12" fill="#0b1520"/><text x="84" y="63" text-anchor="middle" fill="#edf5fa" font-size="20" font-family="monospace">:NH₃</text><text x="180" y="63" text-anchor="middle" fill="#ffd376" font-size="25">→</text><text x="274" y="63" text-anchor="middle" fill="#edf5fa" font-size="20" font-family="monospace">BF₃</text><text x="180" y="91" text-anchor="middle" fill="#9db1c1" font-size="12">BF₃ accepts the electron pair</text>
+      </svg>
+    </article>
+
+    <article class="type-card">
+      <div class="card-head"><span class="icon">⚡</span><h3>Strong and weak acids</h3><span class="tag">Extent of ionisation</span></div>
+      <p><strong>Strong acids</strong> ionise almost completely in water. <strong>Weak acids</strong> ionise only partially and establish an equilibrium.</p>
+      <div class="example"><strong>Strong:</strong> HCl + H₂O → H₃O⁺ + Cl⁻<br><strong>Weak:</strong> CH₃COOH + H₂O ⇌ H₃O⁺ + CH₃COO⁻</div>
+      <svg class="mini-svg" viewBox="0 0 360 112" role="img" aria-label="Strong acids ionise almost completely while weak acids ionise partially">
+        <rect width="360" height="112" rx="12" fill="#0b1520"/><text x="92" y="34" text-anchor="middle" fill="#ff87aa" font-size="13">STRONG</text><text x="92" y="66" text-anchor="middle" fill="#edf5fa" font-size="18" font-family="monospace">→ → →</text><text x="92" y="91" text-anchor="middle" fill="#9db1c1" font-size="12">almost complete</text><text x="268" y="34" text-anchor="middle" fill="#b59aff" font-size="13">WEAK</text><text x="268" y="66" text-anchor="middle" fill="#edf5fa" font-size="18" font-family="monospace">⇌</text><text x="268" y="91" text-anchor="middle" fill="#9db1c1" font-size="12">partial ionisation</text>
+      </svg>
+    </article>
+  </section>
+  <div class="note"><strong>Remember:</strong> Strong vs weak describes how much an acid ionises in water. Concentrated vs dilute describes how much acid is present in a given volume; these are different ideas.</div>
+
+  <h2 class="section-title">How the definitions differ</h2>
+  <p class="section-intro">The definitions are related, but each one focuses on a different part of a reaction.</p>
+  <section class="panel concept compare-wrap">
+    <table class="compare">
+      <thead><tr><th>Definition</th><th>What the acid does</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Arrhenius</td><td>Raises H₃O⁺ concentration in water.</td><td>HCl + H₂O → H₃O⁺ + Cl⁻</td></tr>
+        <tr><td>Brønsted–Lowry</td><td>Donates a proton, H⁺.</td><td>HCl donates H⁺ to H₂O.</td></tr>
+        <tr><td>Lewis</td><td>Accepts an electron pair to make a bond.</td><td>BF₃ accepts a pair from NH₃.</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="types" style="margin-top:14px">
+    <article class="panel concept"><h3>Acid or acidic solution?</h3><p>An acid is a substance that can donate H⁺ or produce H₃O⁺ in water. An acidic solution contains more H₃O⁺ than OH⁻ ions and has a pH below 7 at 25°C.</p></article>
+    <article class="panel concept"><h3>Neutralisation</h3><p>When an acid reacts with a base, they can form a salt and water. The net ionic equation is:</p><span class="equation-line">H⁺ + OH⁻ → H₂O</span><span class="equation-line">HCl + NaOH → NaCl + H₂O</span></article>
+    <article class="panel concept"><h3>Monoprotic and polyprotic acids</h3><p>A monoprotic acid can donate one proton per molecule, such as HCl. A polyprotic acid can donate more than one; sulfuric acid, H₂SO₄, is diprotic.</p></article>
+    <article class="panel concept"><h3>Acid strength and pH</h3><p>A stronger acid ionises more in water at the same concentration. For dilute aqueous solutions at 25°C, pH + pOH = 14. The pH page shows where solutions sit on the scale.</p></article>
+  </section>
+
+  <h2 class="section-title">Examples from school chemistry</h2>
+  <p class="section-intro">These examples are commonly studied in school chemistry.</p>
+  <section class="types">
+    <article class="type-card"><div class="card-head"><span class="icon">🧪</span><h3>Hydrochloric acid</h3></div><p><strong>Formula:</strong> HCl · a strong monoprotic acid; it ionises in water to form hydronium and chloride ions.</p></article>
+    <article class="type-card"><div class="card-head"><span class="icon">🧪</span><h3>Nitric acid</h3></div><p><strong>Formula:</strong> HNO₃ · a strong monoprotic acid used in many school reaction examples.</p></article>
+    <article class="type-card"><div class="card-head"><span class="icon">⚗️</span><h3>Sulfuric acid</h3></div><p><strong>Formula:</strong> H₂SO₄ · a diprotic acid; its first ionisation in water is strong.</p></article>
+    <article class="type-card"><div class="card-head"><span class="icon">⚗️</span><h3>Ethanoic (acetic) acid</h3></div><p><strong>Formula:</strong> CH₃COOH · a weak acid that only partially ionises in water.</p></article>
+    <article class="type-card"><div class="card-head"><span class="icon">🧪</span><h3>Carbonic acid</h3></div><p><strong>Formula:</strong> H₂CO₃ · a weak acid formed when carbon dioxide dissolves in water.</p></article>
+    <article class="type-card"><div class="card-head"><span class="icon">🍋</span><h3>Citric acid</h3></div><p><strong>Formula:</strong> C₆H₈O₇ · a weak organic acid found in citrus fruits.</p></article>
+  </section>
+
+  <h2 class="section-title">Acids in everyday products</h2>
+  <p class="section-intro">Acids are useful in food, biology, transport, and manufacturing.</p>
+  <section class="uses">
+    <article class="use-card"><div class="icon">🥗</div><h3>Food and pickling</h3><p>Ethanoic acid, CH₃COOH, is the acid in vinegar and is used in pickling and food preparation.</p></article>
+    <article class="use-card"><div class="icon">🍋</div><h3>Food and flavour</h3><p>Citric acid gives many fruits their tart taste and is used as a flavouring and preservative in foods.</p></article>
+    <article class="use-card"><div class="icon">🥤</div><h3>Carbonated drinks</h3><p>Dissolved carbon dioxide forms a small amount of carbonic acid in fizzy drinks.</p></article>
+    <article class="use-card"><div class="icon">🚗</div><h3>Lead-acid batteries</h3><p>Sulfuric acid is the electrolyte in lead-acid batteries used in many vehicles. The battery acid is corrosive and should not be handled.</p></article>
+    <article class="use-card"><div class="icon">🌱</div><h3>Fertilisers</h3><p>Sulfuric and nitric acids are used in making important fertiliser chemicals.</p></article>
+    <article class="use-card"><div class="icon">🫀</div><h3>Digestion</h3><p>Hydrochloric acid is naturally present in the stomach, where it helps digestion and limits some microbes.</p></article>
+  </section>
+  <div class="safety"><strong>Safety:</strong> Some acids, including concentrated hydrochloric, nitric, and sulfuric acid, can cause serious injury. Never handle them without teacher supervision and proper lab safety equipment.</div>
+  <div class="bottom-links"><a href="acid-base.html">← Back to Acids &amp; Bases</a><a href="base.html">Learn about bases →</a><a href="phscale.html">Explore the pH scale →</a></div>
+</main>
+<footer>Bond and Beyond · Learn chemistry, one concept at a time</footer>
+</body>
+</html>

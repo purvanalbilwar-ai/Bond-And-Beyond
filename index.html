@@ -1,0 +1,643 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/jpeg" href="bond-beyond-logo - Copy.jpeg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bond & Beyond | Chemistry Made Simple</title>
+
+<style>
+
+/* GENERAL STYLING */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    background-color: #f5f4ef;
+    color: #263c3b;
+}
+
+/* NAVIGATION BAR */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 7%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #d6ded7;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #176b62;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #263c3b;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #159c89;
+}
+
+/* HERO SECTION */
+
+.hero {
+    text-align: center;
+    padding: 85px 20px 75px;
+    background: linear-gradient(135deg, #e0eee8, #f5f4ef);
+    border-bottom: 1px solid #d6ded7;
+}
+
+.hero-label {
+    color: #159c89;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 20px 0;
+    color: #174d47;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #566d67;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: #176b62;
+    color: white;
+}
+
+.secondary-btn {
+    border: 2px solid #176b62;
+    color: #176b62;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.85;
+}
+
+/* DECORATIVE ELEMENTS */
+
+.decorations {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 55px;
+    font-size: 27px;
+}
+
+/* TOPICS SECTION */
+
+.topics {
+    padding: 65px 7%;
+    text-align: center;
+}
+
+.section-heading {
+    font-size: 27px;
+    color: #174d47;
+    margin-bottom: 12px;
+}
+
+.section-description {
+    color: #687b74;
+    margin-bottom: 35px;
+    font-size: 15px;
+}
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.topic-card {
+    background: white;
+    border: 1px solid #dce5df;
+    border-radius: 12px;
+    padding: 30px 15px;
+    text-decoration: none;
+    color: #263c3b;
+    transition: 0.3s;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+
+.topic-card:hover {
+    transform: translateY(-7px);
+    border-color: #159c89;
+    box-shadow: 0 8px 20px rgba(23,107,98,0.12);
+}
+
+.topic-icon {
+    font-size: 35px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.topic-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #176b62;
+}
+
+.topic-card p {
+    font-size: 13px;
+    color: #71817a;
+}
+
+/* ABOUT SECTION */
+
+.about {
+    padding: 55px 20px;
+    text-align: center;
+    background: #e5eee8;
+}
+
+.about h2 {
+    color: #174d47;
+    margin-bottom: 15px;
+}
+
+.about p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.8;
+    color: #566d67;
+}
+
+/* FOOTER */
+
+footer {
+    background: #174d47;
+    color: white;
+    padding: 22px;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .nav-links {
+        gap: 17px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .topic-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .topic-card {
+        padding: 23px 8px;
+    }
+}
+
+@media (max-width: 380px) {
+    .topic-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =================================
+   BOND & BEYOND NEW COLOUR THEME
+================================= */
+
+:root {
+    --navy: #182650;
+    --blue: #3976D5;
+    --sky: #80CFF0;
+    --lavender: #AD83E9;
+    --light-lavender: #F1EAFB;
+    --background: #F7F9FF;
+    --white: #FFFFFF;
+    --light-blue: #EAF4FF;
+    --text: #263454;
+}
+
+/* PAGE BACKGROUND */
+
+body {
+    background: var(--background);
+    color: var(--text);
+}
+
+/* NAVIGATION BAR */
+
+.navbar {
+    background: var(--white);
+    border-bottom: 1px solid #E0E6F5;
+    padding: 8px 7%;
+    box-shadow: 0 3px 12px rgba(24,38,80,0.06);
+}
+
+.logo img {
+    width: 175px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
+}
+
+.nav-links a {
+    color: var(--navy);
+}
+
+.nav-links a:hover {
+    color: var(--lavender);
+}
+
+/* HERO SECTION */
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        #EAF4FF,
+        #F1EAFB,
+        #FFFFFF
+    );
+    border-bottom: 1px solid #E1E6F4;
+    padding: 85px 20px;
+}
+
+.hero-label {
+    color: var(--blue);
+    letter-spacing: 4px;
+}
+
+.hero h1 {
+    color: var(--navy);
+}
+
+.hero p {
+    color: #596987;
+}
+
+/* HERO BUTTONS */
+
+.primary-btn {
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--lavender)
+    );
+    color: white;
+}
+
+.secondary-btn {
+    border: 2px solid var(--blue);
+    color: var(--blue);
+    background: white;
+}
+
+.btn:hover {
+    box-shadow: 0 5px 15px rgba(57,118,213,0.2);
+}
+
+/* DECORATIVE CHEMISTRY ICONS */
+
+.decorations span:nth-child(1) {
+    color: var(--blue);
+}
+
+.decorations span:nth-child(2) {
+    color: var(--lavender);
+}
+
+.decorations span:nth-child(3) {
+    color: var(--sky);
+}
+
+/* TOPICS SECTION */
+
+.topics {
+    background: var(--background);
+}
+
+.section-heading {
+    color: var(--navy);
+}
+
+.section-description {
+    color: #697995;
+}
+
+/* TOPIC CARDS */
+
+.topic-card {
+    background: white;
+    border: 1px solid #DFE5F4;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(24,38,80,0.05);
+}
+
+.topic-card h3 {
+    color: var(--navy);
+}
+
+.topic-card p {
+    color: #74819A;
+}
+
+.topic-card:hover {
+    border-color: var(--lavender);
+    box-shadow: 0 10px 25px rgba(173,131,233,0.18);
+}
+
+.topic-icon {
+    color: var(--blue);
+}
+
+/* ABOUT SECTION */
+
+.about {
+    background: linear-gradient(
+        120deg,
+        #EAF4FF,
+        #F1EAFB
+    );
+}
+
+.about h2 {
+    color: var(--navy);
+}
+
+.about p {
+    color: #596987;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--navy);
+    color: white;
+    border-top: 4px solid var(--lavender);
+}
+
+/* MOBILE LOGO */
+
+@media(max-width: 650px) {
+    .logo img {
+        width: 145px;
+        height: 85px;
+    }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+    <img src="bond-beyond-logo.jpeg"
+         alt="Bond and Beyond Logo">
+</a>
+
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#topics">Topics</a>
+        <a href="topic.html?name=Quiz">Quiz</a>
+        <a href="#about">About</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div class="hero-label">
+        CHEMISTRY MADE SIMPLE
+    </div>
+
+    <h1>Explore what lies<br>Beyond the Bond.</h1>
+
+    <p>
+        Discover chemistry, understand reactions
+        and explore the science behind everything.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#topics" class="btn primary-btn">
+            Explore Chemistry →
+        </a>
+
+        <a href="topic.html?name=Quiz"
+           class="btn secondary-btn">
+            Take a Quiz →
+        </a>
+
+    </div>
+
+    <div class="decorations">
+        <span>🧪</span>
+        <span>⚛️</span>
+        <span>🔬</span>
+    </div>
+
+</section>
+
+
+<!-- EXPLORE TOPICS SECTION -->
+
+<section class="topics" id="topics">
+
+    <h2 class="section-heading">
+        EXPLORE TOPICS
+    </h2>
+
+    <p class="section-description">
+        Choose a topic and begin your chemistry journey.
+    </p>
+
+    <div class="topic-grid">
+
+        <!-- ATOMS -->
+
+        <a href="atomic-structure.html"
+           class="topic-card">
+
+            <span class="topic-icon">⚛️</span>
+
+            <h3>Atoms</h3>
+
+            <p>Discover the building blocks of matter.</p>
+
+        </a>
+
+
+        <!-- BONDS -->
+
+        <a href="molecular-mass.html"
+           class="topic-card">
+
+            <span class="topic-icon">🔗</span>
+
+            <h3>Molecular mass Calculator</h3>
+
+            <p>With step by step calculations.</p>
+
+        </a>
+
+
+        <!-- ACIDS AND BASES -->
+
+        <a href="phscale.html"
+           class="topic-card">
+
+            <span class="topic-icon">🧪</span>
+
+            <h3>Acids & Bases</h3>
+
+            <p>Explore acids, bases and pH.</p>
+
+        </a>
+
+
+        <!-- PERIODIC TABLE -->
+
+        <a href="periodic-table.html"
+           class="topic-card">
+
+            <span class="topic-icon">🧬</span>
+
+            <h3>Periodic Table</h3>
+
+            <p>Explore all 118 chemical elements.</p>
+
+        </a>
+
+
+        <!-- MOLECULES -->
+
+        <a href="polymer.html"
+           class="topic-card">
+
+            <span class="topic-icon">🔬</span>
+
+            <h3>Polymers</h3>
+
+            <p>Explore world of polymers.</p>
+
+        </a>
+
+
+        <!-- CHEMICAL REACTIONS -->
+
+        <a href="topic.html?name=Chemical%20Reactions"
+           class="topic-card">
+
+            <span class="topic-icon">⚗️</span>
+
+            <h3>Chemical Reactions</h3>
+
+            <p>Understand how substances transform.</p>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT SECTION -->
+
+<section class="about" id="about">
+
+    <h2>ABOUT BOND & BEYOND</h2>
+
+    <p>
+        Bond & Beyond is a chemistry learning platform
+        designed to make learning simple, interesting
+        and interactive. Explore important concepts,
+        discover scientific facts and test your knowledge
+        through fun activities.
+    </p>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    LEARN &nbsp; • &nbsp; EXPLORE &nbsp; • &nbsp; DISCOVER
+
+    <p style="font-size:11px; margin-top:12px;">
+        © 2026 Bond & Beyond | Chemistry Learning Platform
+    </p>
+
+</footer>
+
+</body>
+</html>

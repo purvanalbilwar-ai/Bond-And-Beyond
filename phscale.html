@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/jpeg" href="bond-beyond-logo - Copy.jpeg">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pH Explorer | Bond and Beyond</title>
+<style>
+:root{color-scheme:dark;--bg:#0a1018;--panel:#111c29;--panel2:#172535;--line:#26394b;--ink:#edf5fa;--muted:#9db1c1;--mint:#75ead0;--cyan:#6bc9f2;--pink:#ff87aa;--gold:#ffd376}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#17344a 0,transparent 55%),var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+header{height:70px;border-bottom:1px solid #ffffff12;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 max(calc((100vw - 1180px)/2),24px);background:#09111bd9}.top-nav{display:flex;gap:16px;flex-wrap:wrap}.top-link{color:var(--muted);text-decoration:none;font-size:.88rem}.top-link:hover{color:var(--mint)}.bottom-link{display:block;width:max-content;max-width:100%;margin:30px auto 0;padding:10px 16px;border:1px solid var(--line);border-radius:10px;color:var(--mint);text-decoration:none;font-weight:750}.bottom-link:hover{border-color:var(--mint)}.brand{font-weight:850;letter-spacing:-.04em;font-size:1.15rem}.brand b{color:var(--mint)}.brand small{display:block;color:var(--muted);font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;margin-top:2px}
+main{max-width:1180px;margin:auto;padding:54px 24px 66px}.hero{text-align:center;margin-bottom:34px}.eyebrow{color:var(--mint);font-size:.74rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.hero h1{font-size:clamp(2.3rem,5vw,4.2rem);line-height:1.02;letter-spacing:-.06em;margin:12px 0}.hero h1 span{color:var(--mint)}.hero p{max-width:640px;margin:0 auto;color:var(--muted);line-height:1.7}
+.layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(285px,.8fr);gap:20px;align-items:start}.panel{background:linear-gradient(150deg,#142131,#101a26);border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 50px #0003}.scale-panel{padding:24px}.panel-heading{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:18px}.panel-heading h2{font-size:1.08rem;margin:0}.count{color:var(--muted);font-size:.8rem}
+.scale{height:17px;border-radius:20px;background:linear-gradient(90deg,#fa6582 0%,#ff977b 24%,#f1c56e 43%,#91d9b0 50%,#70c9e7 65%,#7287f0 82%,#ad7bfa 100%);box-shadow:0 0 28px #79cdf233;position:relative;margin:22px 3px 10px}.scale:after{content:"";position:absolute;inset:-5px;border:1px solid #ffffff1c;border-radius:99px;pointer-events:none}.scale-marker{display:none;position:absolute;top:50%;left:0;transform:translate(-50%,-50%);z-index:2}.scale-marker.visible{display:block}.scale-marker-dot{display:block;width:19px;height:19px;background:#fff;border:4px solid #142131;border-radius:50%;box-shadow:0 0 0 2px #fff}.scale-marker-label{position:absolute;bottom:27px;left:50%;transform:translateX(-50%);white-space:nowrap;color:#061410;background:var(--mint);font-size:.72rem;font-weight:900;padding:4px 8px;border-radius:7px}.scale-marker-label:after{content:" pH";font-size:.6rem}.ticks{display:flex;justify-content:space-between;color:#9db1c1;font-size:.72rem;padding:0 0 0 0}.scale-labels{display:flex;justify-content:space-between;font-size:.78rem;font-weight:750;margin-top:12px}.acid-label{color:var(--pink)}.base-label{color:#a997ff}.neutral-label{color:var(--mint)}
+.search-row{display:flex;gap:10px;margin:23px 0 12px;flex-wrap:wrap}input{flex:1;min-width:190px;background:#09131e;border:1px solid var(--line);color:var(--ink);border-radius:11px;padding:12px 14px;font:inherit;outline:none}input:focus{border-color:var(--mint);box-shadow:0 0 0 3px #75ead01a}.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}.filter{border:1px solid var(--line);background:#101b28;color:var(--muted);border-radius:99px;padding:7px 12px;font:inherit;font-size:.76rem;cursor:pointer}.filter[aria-pressed=true]{color:#081711;background:var(--mint);border-color:var(--mint);font-weight:800}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;max-height:440px;overflow:auto;padding:2px 4px 4px 0}.compound{position:relative;text-align:left;background:#0d1824;border:1px solid #283b4d;border-radius:12px;padding:12px;min-height:81px;cursor:pointer;color:var(--ink);transition:.18s}.compound:hover{transform:translateY(-2px);border-color:#76dec4}.compound[aria-pressed=true]{border-color:var(--mint);box-shadow:inset 0 0 0 1px var(--mint);background:#142b31}.compound .name{font-weight:720;font-size:.83rem;display:block;padding-right:35px}.compound .ph{position:absolute;right:10px;top:10px;border-radius:8px;padding:4px 6px;font-size:.71rem;font-weight:850;background:#293245}.compound .meta{display:block;color:var(--muted);font-size:.7rem;margin-top:7px}.compound[data-kind=acid] .ph{color:#ffb0bd;background:#482736}.compound[data-kind=neutral] .ph{color:#9ff4dc;background:#164239}.compound[data-kind=base] .ph{color:#c4b4ff;background:#30284c}.empty{display:none;color:var(--muted);padding:22px;text-align:center}.empty.show{display:block}
+.detail{padding:23px;position:sticky;top:18px}.detail-top{display:flex;justify-content:space-between;align-items:center}.detail .symbol{font-size:2.25rem;filter:drop-shadow(0 0 14px #75ead044)}.badge{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:850;border-radius:99px;padding:7px 10px;background:#164239;color:#a5ffe5}.badge.acid{background:#482736;color:#ffb0bd}.badge.base{background:#30284c;color:#c4b4ff}.detail h2{font-size:1.45rem;margin:14px 0 3px}.formula-label{font-size:.65rem;letter-spacing:.12em;color:var(--muted);font-weight:800;margin-top:12px}.formula{font-family:ui-monospace,monospace;color:var(--mint);font-size:.9rem;margin-top:3px}.ph-big{display:flex;align-items:baseline;gap:9px;margin:24px 0 13px}.ph-big strong{font-size:4.2rem;letter-spacing:-.07em;line-height:1}.ph-big span{color:var(--muted);font-size:.9rem}.meter{height:9px;border-radius:10px;background:linear-gradient(90deg,#fa6582,#f0c56e,#75ead0,#7188ee,#ad7bfa);position:relative;margin:0 5px 22px}.pin{position:absolute;top:50%;left:50%;width:17px;height:17px;background:#fff;border:4px solid #142131;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 2px #fff;transition:left .25s}.description{color:#c5d3df;line-height:1.65;font-size:.92rem;min-height:74px}.safety{border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:.79rem;line-height:1.55;margin-top:17px}.safety strong{color:var(--gold)}.note{margin:18px 0 0;border:1px solid #594a2c;background:#292316;border-radius:12px;color:#dfc98f;padding:13px 15px;font-size:.78rem;line-height:1.55}.foot{text-align:center;color:#73899b;font-size:.75rem;margin:26px 0 0}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.detail{position:static;grid-row:1}.grid{grid-template-columns:repeat(3,minmax(0,1fr));max-height:none}.hero{margin-bottom:25px}}@media(max-width:520px){main{padding:38px 15px}.scale-panel,.detail{padding:17px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.panel-heading{align-items:flex-start;flex-direction:column;gap:4px}}
+/* Bond and Beyond light lavender theme */
+:root{color-scheme:light;--bg:#f0efff;--panel:#ffffff;--line:#e2dcf1;--ink:#252139;--muted:#625d74;--mint:#6843a1;--pink:#a34779;--purple:#6843a1;--gold:#8a6120}
+body{background:radial-gradient(ellipse at 8% 24%,#ffffffb8 0 16%,transparent 16.2%),radial-gradient(ellipse at 93% 65%,#e4ddf6a6 0 19%,transparent 19.2%),radial-gradient(ellipse at 23% 92%,#e6eaff 0 22%,transparent 22.2%),#f0efff;color:#252139}
+header,.bb-topbar{background:#e8eafd;border-color:#dedcf0;color:#242036;box-shadow:0 5px 16px #473b6810}
+nav a,.top-link{color:#514b61}
+.panel,.type-card,.use-card,.bb-card,.detail,.scale-panel,.intro-card{background:rgba(255,255,255,.88);border-color:#e1dbef;box-shadow:0 10px 30px #4f3f7310;color:#252139}
+.type-card p,.use-card p,.intro-card p,.hero p,.bb-intro,.bb-card p,.description,.example,.compare td,.concept p{color:#514b61}
+.section-title,.importance h3,.type-card h3,.use-card h3,.intro-card h2{color:#984b79}
+input,#bb-search{background:#fff;color:#252139;border-color:#d5cce7}
+.filter{background:#fff;color:#514b61;border-color:#d8d0e8}
+.filter[aria-pressed="true"]{background:#6843a1;color:#fff;border-color:#6843a1}
+.compound{background:#fff;color:#252139;border-color:#e0d9ed}
+.compound .meta,.count,.ticks{color:#625d74}
+.detail,.bb-note,.note,.safety,.ph-callout,.example,.concept,.mini-svg{border-color:#e1dbef}
+.detail{background:rgba(255,255,255,.9)}
+.badge{background:#efe8fa;color:#6843a1}.badge.acid{background:#f8e7ef;color:#984b79}.badge.base{background:#eee8fa;color:#6843a1}
+.note{background:#fff8e8;color:#6b542a}.safety{background:#fff8e8;color:#665733}.safety strong{color:#8a6120}
+.bottom-link,.bottom-links a{color:#6843a1;border-color:#d6c9e9}
+.learn-card a{box-shadow:0 5px 14px #44266a1a}
+</style>
+</head>
+<body>
+<header><div class="brand">Bond <b>&amp;</b> Beyond<small>chemistry, made clear</small></div></header>
+<main>
+<section class="hero"><div class="eyebrow">Acids &amp; bases · interactive guide</div><h1>Explore the <span>pH scale</span></h1><p>Tap a familiar solution to see where it sits on the pH scale. Lower values are more acidic, 7 is neutral, and higher values are more basic.</p></section>
+<div class="layout">
+<section class="panel scale-panel" aria-labelledby="browse-title">
+<div class="panel-heading"><h2 id="browse-title">Choose a solution</h2><span class="count" id="count"></span></div>
+<div class="scale" id="main-scale" role="img" aria-label="pH scale from 0 acidic to 14 basic"><span class="scale-marker" id="scale-marker" aria-hidden="true"><span class="scale-marker-label" id="scale-value"></span><span class="scale-marker-dot"></span></span></div><div class="ticks"><span>0</span><span>2</span><span>4</span><span>6</span><span>7</span><span>8</span><span>10</span><span>12</span><span>14</span></div><div class="scale-labels"><span class="acid-label">ACIDIC</span><span class="neutral-label">NEUTRAL</span><span class="base-label">BASIC</span></div>
+<div class="search-row"><input id="search" type="search" placeholder="Search 36 solutions…" aria-label="Search solutions"></div>
+<div class="filters" aria-label="Filter by pH type"><button class="filter" data-filter="all" aria-pressed="true">All</button><button class="filter" data-filter="acid" aria-pressed="false">Acids</button><button class="filter" data-filter="neutral" aria-pressed="false">Neutral</button><button class="filter" data-filter="base" aria-pressed="false">Bases</button></div>
+<div class="grid" id="grid" aria-label="Solutions"></div><div class="empty" id="empty">No matching solutions. Try another search.</div>
+<div class="note"><strong>Learning note:</strong> These are approximate pH values for representative solutions. Actual pH changes with concentration, temperature, and formulation.</div>
+</section>
+<aside class="panel detail" aria-live="polite" aria-atomic="true">
+<div class="detail-top"><span class="symbol" id="symbol">⚗️</span><span class="badge" id="badge">Choose a solution</span></div>
+<h2 id="detail-name">Choose a solution</h2><div class="formula-label" id="formula-label" hidden>FORMULA / MAIN COMPONENT</div><div class="formula" id="detail-formula"></div>
+<div class="ph-big"><strong id="detail-ph">—</strong><span>approximate pH</span></div><div class="meter"><span class="pin" id="pin"></span></div>
+<p class="description" id="detail-description">Tap a solution in the list to reveal its approximate pH on the scale.</p>
+<div class="safety"><strong>Explore safely:</strong> This page is for learning. Never taste or handle laboratory or household chemicals. Ask a teacher or adult before doing experiments.</div>
+</aside>
+</div>
+<a class="bottom-link" href="acid-base.html">Continue to Acids &amp; Bases →</a><p class="foot">Bond and Beyond · School chemistry, one concept at a time</p>
+</main>
+<script>
+const solutions=[
+ {name:'Battery acid',formula:'H₂SO₄ · sulfuric acid',ph:0.5,icon:'🔋',type:'acid',desc:'A highly acidic solution used in lead-acid batteries. Included as a scale example only; it is dangerous and must never be handled.'},
+ {name:'Stomach acid',formula:'HCl · hydrochloric acid',ph:1.5,icon:'🫧',type:'acid',desc:'The stomach produces acid that helps digestion. Its pH varies and the stomach lining protects itself.'},
+ {name:'Lemon juice',formula:'C₆H₈O₇ · citric acid',ph:2,icon:'🍋',type:'acid',desc:'Lemon juice contains citric acid, which gives it a sour taste. pH 2 is strongly acidic.'},
+ {name:'Lime juice',formula:'C₆H₈O₇ · citric acid',ph:2,icon:'🍈',type:'acid',desc:'Like lemon juice, lime juice is acidic mainly because it contains citric acid.'},
+ {name:'Vinegar',formula:'CH₃COOH · acetic acid',ph:2.5,icon:'🍶',type:'acid',desc:'Household vinegar is a dilute solution of acetic acid. Its pH depends on its strength.'},
+ {name:'Cola',formula:'Mixture · often H₃PO₄ / H₂CO₃',ph:2.5,icon:'🥤',type:'acid',desc:'Many cola drinks are acidic. Their pH varies by product and recipe.'},
+ {name:'Grapefruit juice',formula:'Mixture · fruit acids',ph:3,icon:'🍊',type:'acid',desc:'Grapefruit juice contains natural fruit acids and is usually acidic.'},
+ {name:'Orange juice',formula:'C₆H₈O₇ · citric acid',ph:3.5,icon:'🍊',type:'acid',desc:'Orange juice contains citric acid and other natural acids; pH varies with ripeness and brand.'},
+ {name:'Tomato juice',formula:'Mixture · includes citric acid (C₆H₈O₇)',ph:4,icon:'🍅',type:'acid',desc:'Tomatoes contain organic acids, so tomato juice is mildly acidic.'},
+ {name:'Apple juice',formula:'C₄H₆O₅ · malic acid',ph:4,icon:'🧃',type:'acid',desc:'Apple juice contains malic acid and is generally mildly acidic.'},
+ {name:'Black coffee',formula:'Mixture · no single formula',ph:5,icon:'☕',type:'acid',desc:'Brewed coffee is mildly acidic. Bean type and brewing method affect its pH.'},
+ {name:'Tea',formula:'Mixture · no single formula',ph:5.5,icon:'🫖',type:'acid',desc:'Many brewed teas are mildly acidic, though the exact pH depends on the tea and preparation.'},
+ {name:'Rainwater',formula:'H₂O + dissolved CO₂',ph:5.6,icon:'🌧️',type:'acid',desc:'Unpolluted rain is slightly acidic because carbon dioxide dissolves in it.'},
+ {name:'Yogurt',formula:'C₃H₆O₃ · lactic acid',ph:4.5,icon:'🥣',type:'acid',desc:'Helpful bacteria produce lactic acid as milk ferments, making yogurt acidic.'},
+ {name:'Buttermilk',formula:'C₃H₆O₃ · lactic acid',ph:4.5,icon:'🥛',type:'acid',desc:'Cultured buttermilk contains lactic acid and is mildly acidic.'},
+ {name:'Soda water',formula:'H₂CO₃ · carbonic acid in water',ph:5,icon:'🫧',type:'acid',desc:'Dissolved carbon dioxide forms a small amount of carbonic acid.'},
+ {name:'Milk',formula:'Mixture · lactose, fats, proteins',ph:6.5,icon:'🥛',type:'acid',desc:'Fresh milk is slightly acidic, with pH close to neutral.'},
+ {name:'Saliva',formula:'Mixture · mostly water and salts',ph:6.8,icon:'🙂',type:'acid',desc:'Saliva pH varies through the day and is often near neutral.'},
+ {name:'Distilled water',formula:'H₂O · water',ph:7,icon:'💧',type:'neutral',desc:'At room temperature, pure water is neutral, with pH 7.'},
+ {name:'Sugar solution',formula:'C₁₂H₂₂O₁₁ · sucrose',ph:7,icon:'🍬',type:'neutral',desc:'A simple sugar solution is usually close to neutral because sugar does not release acid or base ions in water.'},
+ {name:'Salt solution',formula:'NaCl · sodium chloride',ph:7,icon:'🧂',type:'neutral',desc:'A solution of table salt in pure water is approximately neutral.'},
+ {name:'Human blood',formula:'Mixture · bicarbonate buffer',ph:7.4,icon:'🩸',type:'base',desc:'Blood is slightly basic and is tightly regulated by the body. This value is an educational reference.'},
+ {name:'Sea water',formula:'H₂O + dissolved minerals',ph:8.1,icon:'🌊',type:'base',desc:'Ocean water is slightly basic. Natural seawater pH varies by location and conditions.'},
+ {name:'Baking soda solution',formula:'NaHCO₃ · sodium hydrogen carbonate',ph:8.3,icon:'🧁',type:'base',desc:'Baking soda dissolves to form a mildly basic solution.'},
+ {name:'Egg white',formula:'Mixture · albumen proteins',ph:8.5,icon:'🥚',type:'base',desc:'Fresh egg white is mildly basic; its pH can rise as an egg ages.'},
+ {name:'Toothpaste slurry',formula:'Mixture · varies by product',ph:9,icon:'🪥',type:'base',desc:'Many toothpastes are mildly basic, but their formulas and measured pH differ.'},
+ {name:'Borax solution',formula:'Na₂B₄O₇ · borax (common form)',ph:9.2,icon:'🧼',type:'base',desc:'Borax forms a basic solution. This is a classroom reference; do not ingest or handle it.'},
+ {name:'Hand soap solution',formula:'Mixture · varies by soap',ph:9.5,icon:'🧼',type:'base',desc:'Many traditional soaps are mildly basic. Modern products can have different pH values.'},
+ {name:'Baking powder solution',formula:'Mixture · acid + NaHCO₃',ph:7,icon:'🥄',type:'neutral',desc:'Baking powder contains both acidic and basic ingredients; the pH depends on the mix and water amount.'},
+ {name:'Milk of magnesia',formula:'Mg(OH)₂ · magnesium hydroxide',ph:10.5,icon:'🥄',type:'base',desc:'Magnesium hydroxide is basic. This is an approximate value and not a recommendation to use medicine.'},
+ {name:'Ammonia cleaner',formula:'NH₃ · ammonia in water',ph:11,icon:'🧴',type:'base',desc:'Some household ammonia solutions are strongly basic. Product concentrations vary; never mix cleaners.'},
+ {name:'Laundry detergent solution',formula:'Mixture · varies by product',ph:10,icon:'🫧',type:'base',desc:'Many laundry detergents make basic solutions, but their pH varies by product and dilution.'},
+ {name:'Washing soda solution',formula:'Na₂CO₃ · sodium carbonate',ph:11,icon:'🧺',type:'base',desc:'Washing soda forms a basic solution and is stronger than baking soda.'},
+ {name:'Household bleach',formula:'NaClO · sodium hypochlorite',ph:12.5,icon:'⚠️',type:'base',desc:'Many bleach products are strongly basic and hazardous. Never mix bleach with other cleaners.'},
+ {name:'Oven cleaner',formula:'Mixture · varies by product',ph:13,icon:'⚠️',type:'base',desc:'Some oven cleaners are strongly basic and corrosive. Shown only as a pH-scale example.'},
+ {name:'Drain cleaner',formula:'Often NaOH · sodium hydroxide',ph:14,icon:'⚠️',type:'base',desc:'Some drain cleaners are extremely basic and corrosive. Never handle; this is a classroom comparison only.'}
+];
+const grid=document.querySelector('#grid'),search=document.querySelector('#search'),empty=document.querySelector('#empty'),count=document.querySelector('#count');let filter='all',selected=-1;
+function kindLabel(t){return t==='acid'?'Acidic':t==='base'?'Basic':'Neutral'}
+function render(){const q=search.value.toLowerCase().trim();const matches=solutions.map((x,i)=>({...x,i})).filter(x=>(filter==='all'||x.type===filter)&&`${x.name} ${x.formula} ${x.desc}`.toLowerCase().includes(q));grid.innerHTML='';matches.forEach(x=>{const b=document.createElement('button');b.type='button';b.className='compound';b.dataset.kind=x.type;b.setAttribute('aria-pressed',String(x.i===selected));b.setAttribute('aria-label',`${x.name}, approximate pH ${x.ph}, ${kindLabel(x.type)}`);b.innerHTML=`<span class="name">${x.icon} ${x.name}</span><span class="meta">${kindLabel(x.type)}</span>`;b.addEventListener('click',()=>{selected=x.i;updateDetail();render()});grid.appendChild(b)});count.textContent=`${matches.length} of ${solutions.length} solutions`;empty.classList.toggle('show',matches.length===0)}
+function updateDetail(){if(selected<0){document.querySelector('#scale-marker').classList.remove('visible');document.querySelector('#symbol').textContent='⚗️';document.querySelector('#badge').textContent='Choose a solution';document.querySelector('#badge').className='badge';document.querySelector('#detail-name').textContent='Choose a solution';document.querySelector('#formula-label').hidden=true;document.querySelector('#detail-formula').textContent='' ;document.querySelector('#detail-ph').textContent='—';document.querySelector('#detail-description').textContent='Tap a solution in the list to reveal its approximate pH on the scale.';document.querySelector('#pin').style.left='50%';return}const x=solutions[selected];document.querySelector('#scale-marker').classList.add('visible');document.querySelector('#scale-value').textContent=x.ph;document.querySelector('#scale-marker').style.left=`${(x.ph/14)*100}%`;document.querySelector('#symbol').textContent=x.icon;document.querySelector('#detail-name').textContent=x.name;document.querySelector('#detail-formula').textContent=x.formula;document.querySelector('#formula-label').hidden=false;document.querySelector('#detail-ph').textContent=x.ph;document.querySelector('#detail-description').textContent=x.desc;const badge=document.querySelector('#badge');badge.textContent=kindLabel(x.type);badge.className=`badge ${x.type}`;document.querySelector('#pin').style.left=`${(x.ph/14)*100}%`}
+document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;document.querySelectorAll('.filter').forEach(q=>q.setAttribute('aria-pressed',String(q===b)));render()}));search.addEventListener('input',render);updateDetail();render();
+</script>
+</body>
+</html>

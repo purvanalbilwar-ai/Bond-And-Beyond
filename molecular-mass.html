@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/jpeg" href="bond-beyond-logo - Copy.jpeg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Molecular Mass Calculator</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f0ff, #f5eaff);
+    color: #252747;
+}
+
+header {
+    background: #34346f;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+header p {
+    margin-bottom: 0;
+    color: #e0dcff;
+}
+
+.container {
+    max-width: 750px;
+    margin: 35px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 5px 25px #25274720;
+}
+
+h2 {
+    color: #34346f;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    font-size: 19px;
+    border: 2px solid #b9b5e9;
+    border-radius: 10px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #6255bc;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+button {
+    padding: 13px 25px;
+    border: none;
+    border-radius: 9px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.calculate {
+    background: #5146a5;
+    color: white;
+}
+
+.clear {
+    background: #e9e7f8;
+    color: #34346f;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+#result {
+    display: none;
+    margin-top: 30px;
+}
+
+.step {
+    background: #f4f2ff;
+    padding: 18px;
+    margin: 15px 0;
+    border-radius: 10px;
+    line-height: 1.8;
+}
+
+.step h3 {
+    color: #5146a5;
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #dcd9ef;
+}
+
+th {
+    background: #e8e5ff;
+}
+
+.final {
+    background: #e5f8ed;
+    padding: 22px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.final h2 {
+    color: #167844;
+    font-size: 30px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #30305c;
+    background:
+        radial-gradient(circle at 10% 20%, #e1ddff 0, transparent 30%),
+        radial-gradient(circle at 90% 80%, #d9f4e9 0, transparent 28%),
+        #f7f6ff;
+    min-height: 100vh;
+}
+
+/* Header */
+
+header {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #292858, #5146a5, #7164b9);
+    color: white;
+    text-align: center;
+    padding: 38px 20px 45px;
+}
+
+header::before {
+    content: "⚛";
+    position: absolute;
+    font-size: 130px;
+    opacity: 0.08;
+    left: 5%;
+    top: -30px;
+}
+
+header::after {
+    content: "✧";
+    position: absolute;
+    font-size: 100px;
+    opacity: 0.15;
+    right: 10%;
+    bottom: -35px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+header p {
+    color: #e4e0ff;
+    margin-bottom: 0;
+    position: relative;
+}
+
+/* Main calculator card */
+
+.container {
+    max-width: 760px;
+    margin: 40px auto;
+    padding: 35px;
+    background: rgba(255,255,255,0.95);
+    border: 1px solid #e4e0ff;
+    border-radius: 22px;
+    box-shadow: 0 12px 40px rgba(62,48,130,0.10);
+}
+
+h2 {
+    color: #39336f;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* Formula input */
+
+input {
+    width: 100%;
+    padding: 16px;
+    font-size: 19px;
+    color: #34346f;
+    background: #faf9ff;
+    border: 2px solid #dcd6ff;
+    border-radius: 12px;
+    outline: none;
+    transition: 0.25s;
+}
+
+input:focus {
+    border-color: #7164b9;
+    box-shadow: 0 0 0 4px #7164b920;
+}
+
+.hint {
+    font-size: 13px;
+    color: #85819f;
+    margin-top: 10px;
+}
+
+/* Buttons */
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+button {
+    padding: 14px 26px;
+    border: none;
+    border-radius: 11px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.calculate {
+    background: linear-gradient(120deg, #5146a5, #7164b9);
+    color: white;
+    box-shadow: 0 5px 12px #5146a530;
+}
+
+.calculate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px #5146a540;
+}
+
+.clear {
+    background: #e9e6ff;
+    color: #5146a5;
+}
+
+.clear:hover {
+    background: #dcd6ff;
+}
+
+/* Results */
+
+#result {
+    display: none;
+    margin-top: 32px;
+    animation: appear 0.4s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step {
+    background: #f7f5ff;
+    border: 1px solid #e7e2ff;
+    border-left: 4px solid #7164b9;
+    padding: 20px;
+    margin: 18px 0;
+    border-radius: 13px;
+    line-height: 1.8;
+}
+
+.step h3 {
+    color: #5146a5;
+    margin-top: 0;
+}
+
+/* Table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 8px;
+    text-align: center;
+    border: 1px solid #e4e0f5;
+}
+
+th {
+    background: #e9e5ff;
+    color: #39336f;
+}
+
+td {
+    background: white;
+}
+
+/* Final answer */
+
+.final {
+    background: linear-gradient(135deg, #e0f6ed, #effbf5);
+    border: 1px solid #c4ead7;
+    padding: 25px;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 24px;
+}
+
+.final h3 {
+    color: #247b58;
+}
+
+.final h2 {
+    color: #16734d;
+    font-size: 34px;
+    margin: 12px 0;
+}
+
+/* Error message */
+
+#error {
+    color: #c62828;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* Mobile view */
+
+@media(max-width: 600px) {
+    header h1 {
+        font-size: 25px;
+    }
+
+    .container {
+        margin: 18px 12px;
+        padding: 22px 16px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px 4px;
+    }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>⚗ Molecular Mass Calculator</h1>
+    <p>Learn Chemistry Through Step-by-Step Calculations</p>
+</header>
+
+
+<div class="container">
+
+    <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:10px;
+        margin-bottom:25px;
+    ">
+        <span style="
+            background:#eeeaff;
+            color:#5146a5;
+            padding:8px 14px;
+            border-radius:20px;
+            font-size:12px;
+            font-weight:bold;
+        ">
+            ⚗ CHEMISTRY LAB
+        </span>
+
+        <a href="index.html" style="
+            color:#5146a5;
+            text-decoration:none;
+            font-weight:600;
+            font-size:14px;
+        ">
+            ← Back to Home
+        </a>
+    </div>
+
+    <h2>Calculate Molecular Mass</h2>
+<label for="formula">Enter Chemical Formula:</label>
+
+<input
+    type="text"
+    id="formula"
+    placeholder="Example: H2SO4"
+    autocomplete="off"
+>
+
+<p class="hint">
+    Examples: H2O, CO2, NaCl, Ca(OH)2, Al2(SO4)3
+</p>
+
+<div class="buttons">
+    <button class="calculate" onclick="calculateMass()">
+        Calculate
+    </button>
+
+    <button class="clear" onclick="clearResult()">
+        Clear
+    </button>
+</div>
+
+<p id="error"></p>
+
+<div id="result"></div>
+
+<script>
+
+// Atomic masses in g/mol
+const atomicMass = {
+H:1.008, He:4.0026,
+Li:6.94, Be:9.0122, B:10.81, C:12.011,
+N:14.007, O:15.999, F:18.998, Ne:20.180,
+Na:22.990, Mg:24.305, Al:26.982, Si:28.085,
+P:30.974, S:32.06, Cl:35.45, Ar:39.948,
+K:39.098, Ca:40.078, Sc:44.956, Ti:47.867,
+V:50.942, Cr:51.996, Mn:54.938, Fe:55.845,
+Co:58.933, Ni:58.693, Cu:63.546, Zn:65.38,
+Ga:69.723, Ge:72.630, As:74.922, Se:78.971,
+Br:79.904, Kr:83.798, Rb:85.468, Sr:87.62,
+Y:88.906, Zr:91.224, Nb:92.906, Mo:95.95,
+Tc:98, Ru:101.07, Rh:102.906, Pd:106.42,
+Ag:107.868, Cd:112.414, In:114.818, Sn:118.710,
+Sb:121.760, Te:127.60, I:126.904, Xe:131.293,
+Cs:132.905, Ba:137.327, La:138.905, Ce:140.116,
+Pr:140.908, Nd:144.242, Pm:145, Sm:150.36,
+Eu:151.964, Gd:157.25, Tb:158.925, Dy:162.500,
+Ho:164.930, Er:167.259, Tm:168.934, Yb:173.045,
+Lu:174.967, Hf:178.49, Ta:180.948, W:183.84,
+Re:186.207, Os:190.23, Ir:192.217, Pt:195.084,
+Au:196.967, Hg:200.592, Tl:204.38, Pb:207.2,
+Bi:208.980, Po:209, At:210, Rn:222,
+Fr:223, Ra:226, Ac:227, Th:232.038,
+Pa:231.036, U:238.029, Np:237, Pu:244,
+Am:243, Cm:247, Bk:247, Cf:251,
+Es:252, Fm:257, Md:258, No:259,
+Lr:266, Rf:267, Db:268, Sg:269,
+Bh:270, Hs:277, Mt:278, Ds:281,
+Rg:282, Cn:285, Nh:286, Fl:289,
+Mc:290, Lv:293, Ts:294, Og:294
+};
+
+// Parse chemical formula, including nested brackets
+function parseFormula(formula) {
+
+    let index = 0;
+
+    function parseGroup() {
+
+        let counts = {};
+
+        while (index < formula.length) {
+
+            let char = formula[index];
+
+            if (char === ')' || char === ']') {
+                break;
+            }
+
+            if (char === '(' || char === '[') {
+
+                let closing = char === '(' ? ')' : ']';
+                index++;
+
+                let inner = parseGroup();
+
+                if (formula[index] !== closing) {
+                    throw new Error("Missing closing bracket.");
+                }
+
+                index++;
+
+                let multiplier = readNumber();
+
+                for (let element in inner) {
+                    counts[element] =
+                        (counts[element] || 0) +
+                        inner[element] * multiplier;
+                }
+
+            } else if (/[A-Z]/.test(char)) {
+
+                let element = char;
+                index++;
+
+                while (
+                    index < formula.length &&
+                    /[a-z]/.test(formula[index])
+                ) {
+                    element += formula[index];
+                    index++;
+                }
+
+                if (!(element in atomicMass)) {
+                    throw new Error(
+                        "Unknown element: " + element
+                    );
+                }
+
+                let quantity = readNumber();
+
+                counts[element] =
+                    (counts[element] || 0) + quantity;
+
+            } else {
+                throw new Error(
+                    "Invalid character: " + char
+                );
+            }
+        }
+
+        return counts;
+    }
+
+    function readNumber() {
+
+        let start = index;
+
+        while (
+            index < formula.length &&
+            /[0-9]/.test(formula[index])
+        ) {
+            index++;
+        }
+
+        if (start === index) return 1;
+
+        let number = Number(formula.slice(start, index));
+
+        if (number < 1 || !Number.isSafeInteger(number)) {
+            throw new Error("Invalid atom multiplier.");
+        }
+
+        return number;
+    }
+
+    let result = parseGroup();
+
+    if (index !== formula.length) {
+        throw new Error("Check your chemical brackets.");
+    }
+
+    if (Object.keys(result).length === 0) {
+        throw new Error("Enter a valid chemical formula.");
+    }
+
+    return result;
+}
+
+function calculateMass() {
+
+    const formula =
+        document.getElementById("formula").value.trim();
+
+    const result =
+        document.getElementById("result");
+
+    const error =
+        document.getElementById("error");
+
+    result.style.display = "none";
+    error.textContent = "";
+
+    if (!formula) {
+        error.textContent =
+            "Please enter a chemical formula.";
+        return;
+    }
+
+    if (/\s|[^A-Za-z0-9()[\]]/.test(formula)) {
+        error.textContent =
+            "Use a valid formula without spaces or charges.";
+        return;
+    }
+
+    try {
+
+        const elements = parseFormula(formula);
+
+        let totalMass = 0;
+        let rows = "";
+
+        for (let element in elements) {
+
+            let count = elements[element];
+            let mass = atomicMass[element];
+            let contribution = count * mass;
+
+            totalMass += contribution;
+
+            rows += `
+                <tr>
+                    <td>${element}</td>
+                    <td>${count}</td>
+                    <td>${mass}</td>
+                    <td>${contribution.toFixed(3)}</td>
+                </tr>
+            `;
+        }
+
+        let calculation = Object.keys(elements)
+            .map(element =>
+                `${elements[element]} × ${atomicMass[element]}`
+            )
+            .join(" + ");
+
+        result.innerHTML = `
+        
+
+            <h2>Calculation Result</h2>
+
+            <div class="step">
+                <h3>Step 1: Identify the elements</h3>
+                <p>
+                    The compound <b>${formula}</b>
+                    contains the following elements:
+                </p>
+                <p>
+                    ${Object.entries(elements)
+                    .map(([element, count]) =>
+                        `${element}: ${count} atom(s)`
+                    ).join("<br>")}
+                </p>
+            </div>
+
+            <div class="step">
+                <h3>Step 2: Atomic masses</h3>
+
+                <table>
+                    <tr>
+                        <th>Element</th>
+                        <th>Number of atoms</th>
+                        <th>Atomic mass</th>
+                        <th>Total contribution</th>
+                    </tr>
+                    ${rows}
+                </table>
+            </div>
+
+            <div class="step">
+                <h3>Step 3: Apply the formula</h3>
+
+                <p>
+                    Molecular Mass =
+                    Σ (Number of atoms × Atomic mass)
+                </p>
+
+                <p><b>${calculation}</b></p>
+
+                <p>
+                    Add all the contributions to obtain
+                    the total molecular mass.
+                </p>
+            </div>
+
+<div class="visual-section">
+            <div class="final">
+                <h3>Final Molecular Mass</h3>
+                <h2>${totalMass.toFixed(3)} g/mol</h2>
+                <p>For ${formula}</p>
+            </div>
+        `;
+
+        result.style.display = "block";
+
+    } catch (e) {
+
+        error.textContent = e.message;
+
+    }
+}
+
+function clearResult() {
+
+    document.getElementById("formula").value = "";
+
+    document.getElementById("result").style.display = "none";
+
+    document.getElementById("error").textContent = "";
+
+}
+
+</script>
+
+</body>
+</html>

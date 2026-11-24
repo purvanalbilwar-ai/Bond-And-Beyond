@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bond & Beyond | Topics</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f4ef;
+    color: #174d47;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.container {
+    background: white;
+    max-width: 500px;
+    margin: auto;
+    padding: 45px 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #0001;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+p {
+    color: #687b74;
+    line-height: 1.7;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #176b62;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 id="heading">Coming Soon!</h1>
+
+    <h2>Explore Chemistry Beyond the Bond ⚗️</h2>
+
+    <p id="message">
+        We are working on something exciting.
+        This page will be available soon!
+    </p>
+
+    <a href="index.html">← Back to Home</a>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const topic = params.get("name");
+
+if (topic) {
+    document.getElementById("heading").innerText = topic;
+    document.title = topic + " | Bond & Beyond";
+}
+</script>
+
+</body>
+</html>
